@@ -54,4 +54,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+#会員登録、ログイン
 gem 'devise'
+#enumで定義した値を日本語に
+gem "enum_help"
