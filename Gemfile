@@ -56,5 +56,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #会員登録、ログイン
 gem 'devise'
-#enumで定義した値を日本語に
+#enumで定義した値を日本語にするため
 gem "enum_help"
+#ページネーション
+gem 'kaminari','~> 1.2.1'
