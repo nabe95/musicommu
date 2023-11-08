@@ -12,6 +12,14 @@
   </head>
 
   <body>
+    <header>
+      <%= render 'layouts/header' %>
+    </header>
+    <main>
     <%= yield %>
+    </main>
+    <footer class = "bg-info" >
+      <%= render 'layouts/footer' %>
+    </footer>
   </body>
 </html>
