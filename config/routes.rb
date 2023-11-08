@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   
   # 管理者用
   # URL /admin/sign_in ...
-  devise_for :admins, skip: [:registrations, :passwwords], controllers: {
+  devise_for :admin, skip: [:registrations, :passwwords], controllers: {
     sessions: "admin/sessions"
   }
   
