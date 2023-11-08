@@ -16,6 +16,8 @@
       <%= render 'layouts/header' %>
     </header>
     <main>
+    <%= flash[:error] %>
+    <%= flash[:notice] %>
     <%= yield %>
     </main>
     <footer class = "bg-info" >

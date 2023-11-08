@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   #ユーザールーティング
   scope module: :public do
     root to: 'homes#top'
+    resources :users, only: [:index, :show, :edit, :update]
   end
 
   #管理者ルーティング

@@ -1,0 +1,25 @@
+<table class='table'>
+  <tr>
+    <%= image_tag user.get_profile_image, size:'100x100' %>
+  </tr>
+  <tr>
+    <th>名前</th>
+    <th><%= user.name %></th>
+  </tr>
+  <tr>
+    <th>introduction</th>
+    <th><%= user.introduction %></th>
+  </tr>
+  <tr>
+    <th>年齢</th>
+    <th><%= user.age %>歳</th>
+  </tr>
+  <tr>
+    <th>住所</th>
+    <th><%= user.prefectures %></th>
+  </tr>
+</table>
+
+<%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block" do %>
+<i class="fas fa-user-cog"></i>
+<% end %>
