@@ -4,9 +4,10 @@ class Public::BandPostsController < ApplicationController
   end
   
   def create
-    @band_post = BandPost.find(params[:id])
-    @band_post.update(post_params)
-    redirect_to post_path(@band_post.id)
+    @band_post = BandPost.new(band_post_params)
+    @band_post.user_id = current_user.id
+    @band_post.save
+    redirect_to band_posts_path
   end
 
   def index
@@ -37,7 +38,8 @@ class Public::BandPostsController < ApplicationController
   private
   
   def band_post_params
-    params.require(:band_post).permit(:title, :body)
+    params.require(:band_post).permit(
+      :title, :body, :area, :instrument, :genre, :activity, :direction, :band_type)
   end
   
 end

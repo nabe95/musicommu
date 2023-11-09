@@ -56,6 +56,12 @@ ActiveRecord::Schema.define(version: 2023_11_09_080856) do
     t.integer "user_id", null: false
     t.string "title", null: false
     t.text "body", null: false
+    t.text "area", null: false
+    t.text "instrument", null: false
+    t.text "genre", null: false
+    t.integer "activity", default: 0, null: false
+    t.integer "direction", default: 0, null: false
+    t.integer "band_type", default: 0, null: false
     t.integer "status", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

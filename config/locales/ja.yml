@@ -1,4 +1,18 @@
 ja:
+  enums:
+    band_post:
+      activity:
+        unspecified: "指定なし"
+        weekdays: "平日"
+        holiday: "休日"
+      direction:
+        hobby: "趣味"
+        independent: "インディーズ"
+        pro: "プロ志向"
+      band_type:
+        notype: "指定なし"
+        copy: "コピー"
+        original: "オリジナル"
   activerecord:
     errors:
       messages:
@@ -16,7 +30,7 @@ ja:
     - 金
     - 土
     abbr_month_names:
-    - 
+    -
     - 1月
     - 2月
     - 3月
@@ -42,7 +56,7 @@ ja:
       long: "%Y年%m月%d日(%a)"
       short: "%m/%d"
     month_names:
-    - 
+    -
     - 1月
     - 2月
     - 3月
