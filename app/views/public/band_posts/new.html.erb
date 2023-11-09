@@ -4,7 +4,7 @@
       <h2>新規募集</h2>
       <%= form_with model: BandPost.new do |f| %>
       <h5>タイトル</h5>
-        <%= f.text_field :title %>
+        <%= f.text_area :title %>
       <h5>ジャンル</h5>
         <%= f.text_field :genre %>
       <h5>募集パート</h5>

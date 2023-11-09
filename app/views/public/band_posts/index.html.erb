@@ -2,7 +2,7 @@
   <div class="row justify-content-center mt-2 mb-2">
     <div class="col">
       <h4>募集一覧</h4>
-      <%= link_to "　新規投稿する　", new_band_post_path, class:"btn btn-primary" %>
+      <%= link_to "　新規募集する　", new_band_post_path, class:"btn btn-primary" %>
       
       <div class="row">
         <% @band_posts.each do |band_post| %>
@@ -11,10 +11,10 @@
               <%= link_to band_post, class: "card-body text-dark" do %>
                 <p><%= band_post.created_at.strftime("%Y/%m/%d %H:%M")%></p>
                 <h5 class="card-title"><%= band_post.title %></h5>
-                <p class="card-text">ジャンル:<%= band_post.genre %><br>
-                  募集パート:<%= band_post.instrument %><br>
-                  活動地域:<%= band_post.area %><br>
-                  方向性:<%= band_post.direction_i18n %><br>
+                <p class="card-text">ジャンル: <%= band_post.genre %><br>
+                  募集パート: <%= band_post.instrument %><br>
+                  活動地域: <%= band_post.area %><br>
+                  方向性: <%= band_post.direction_i18n %><br>
                 </p>
               <% end %>
             </div>
