@@ -2,6 +2,7 @@
   <div class="row justify-content-center mt-2 mb-2">
     <div class="col">
       <h4>投稿一覧</h4>
+      <%= link_to "　新規投稿する　", new_post_path, class:"btn btn-primary" %>
       <%= render 'index', posts: @posts %>
     </div>
   </div>

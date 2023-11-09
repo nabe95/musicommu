@@ -1,2 +1,16 @@
-<h1>Public::Posts#edit</h1>
-<p>Find me in app/views/public/posts/edit.html.erb</p>
+<div class="container">
+  <div class="row mt-2 mb-2">
+    <div class="col">
+      <h4>編集</h4>
+        <%= form_with model: @post do |f| %>
+      <h4>画像</h4>
+        <%= f.file_field :image, accept: "image/*" %>
+      <h4>タイトル</h4>
+        <%= f.text_field :title %>
+      <h4>本文</h4>
+        <%= f.text_area :body %><br>
+      <%= f.submit '　変更　',class:"btn btn-success" %>
+      <% end %>
+    </div>
+  </div>
+</div>

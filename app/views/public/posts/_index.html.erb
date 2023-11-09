@@ -3,8 +3,7 @@
     <tr>
       <th>投稿時間</th>
       <th>タイトル</th>
-      <th></th>
-      <th></th>
+      <th>ユーザー</th>
     </tr>
   </thead>
   <tbody>
@@ -14,9 +13,9 @@
       <td><%= link_to post.title,post %></td>
       <td><%= link_to(post.user) do %>
         <%= image_tag post.user.get_profile_image, size:'50x50' %>
+        <%= post.user.name %></td>
         <% end %>
       </td>
-      <td><%= post.user.name %></td>
     </tr>
     <% end %>
   </tbody>

@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row justify-content-center mt-2 mb-2">
+    <div class="col">
+      <h2>新規募集</h2>
+      <%= form_with model: BandPost.new do |f| %>
+      <h4>タイトル</h4>
+        <%= f.text_field :title %>
+      <h4>本文</h4>
+        <%= f.text_area :body %><br>
+      <%= f.submit '　投稿　',class:"btn btn-success" %>
+      <% end %>
+    </div>
+  </div>
+</div>
