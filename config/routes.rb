@@ -16,9 +16,11 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
     resources :users, only: [:index, :show, :edit, :update]
-    resources :posts, only: [:new, :create, :index, :show, :edit, :update, :destroy]
     resources :band_posts, only: [:new, :create, :index, :show, :edit, :update, :destroy]
-
+    
+    resources :posts, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
+    resource :favorites, only: [:create, :destroy]
+    end
   end
 
   #管理者ルーティング
