@@ -16,7 +16,7 @@
           </tr>
           <tr>
             <td><%= @post.title %></td>
-            <td></td>
+            <td><%= render 'public/favorites/favorite', post: @post %></td>
           </tr>
           <tr>
             <td><%= @post.body %></td>
