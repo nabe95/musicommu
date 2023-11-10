@@ -2,6 +2,9 @@ class Post < ApplicationRecord
   belongs_to :user
   
   has_one_attached :image
+  #コメント機能
+  has_many :post_comments, dependent: :destroy
+  #いいね
   has_many :favorites, dependent: :destroy
   
   validates :title,presence:true
@@ -11,7 +14,7 @@ class Post < ApplicationRecord
     if image.attached?
       image
     else
-      'no_image.jpg'
+      'no_image2.jpg'
     end
   end
   

@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     resources :band_posts, only: [:new, :create, :index, :show, :edit, :update, :destroy]
     
     resources :posts, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
+    resources :post_comments, only: [:create, :destroy]
     resource :favorites, only: [:create, :destroy]
     end
   end

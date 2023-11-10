@@ -4,6 +4,7 @@
       <th>投稿時間</th>
       <th>タイトル</th>
       <th>いいね</th>
+      <th>コメント数</th>
       <th>ユーザー</th>
     </tr>
   </thead>
@@ -13,6 +14,7 @@
       <td><%= post.created_at.strftime("%Y/%m/%d %H:%M")%></td>
       <td><%= link_to post.title,post %></td>
       <td><%= render 'public/favorites/favorite', post: post %></td>
+      <td><%= render "public/post_comments/counter", post: post %></td>
       <td><%= link_to(post.user) do %>
         <%= image_tag post.user.get_profile_image, size:'50x50' %>
         <%= post.user.name %></td>
