@@ -21,7 +21,9 @@
           </tr>
           <tr>
             <td><%= @post.title %></td>
-            <td><%= render 'public/favorites/favorite', post: @post %></td>
+            <td class=<%= "favorite-" + @post.id.to_s %> >
+              <%= render 'public/favorites/favorite', post: @post %>
+            </td>
             <td><%= render "public/post_comments/counter", post: @post %></td>
           </tr>
           <tr>
