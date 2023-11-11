@@ -18,6 +18,13 @@ class Public::UsersController < ApplicationController
     end
   end
   
+  # いいね一覧表示
+  def favorites
+    @user = User.find(params[:id])
+    favorites = Favorite.where(user_id: @user.id).pluck(:post_id)
+    @favorite_posts = Post.find(favorites)
+  end
+  
   def user_params
     params.require(:user).permit(:profile_image, :name, :introduction, :age, :prefectures)
   end
