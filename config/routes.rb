@@ -15,15 +15,21 @@ Rails.application.routes.draw do
   #ユーザールーティング
   scope module: :public do
     root to: 'homes#top'
+    
+    #投稿検索機能
+    get "search", to: "searches#search"
+    
     # バンド募集
     resources :band_posts, only: [:new, :create, :index, :show, :edit, :update, :destroy]
+    
     # ユーザー
     resources :users, only: [:index, :show, :edit, :update] do
       member do
         get :favorites 
       end
     end
-    #
+    
+    #投稿機能
     resources :posts, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
     resources :post_comments, only: [:create, :destroy]
     resource :favorites, only: [:create, :destroy]
