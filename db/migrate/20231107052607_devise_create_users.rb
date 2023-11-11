@@ -9,8 +9,10 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       
       t.string :name
       t.text :introduction
-      t.string :prefectures
+      t.string :prefecture
       t.integer :age
+      t.string :genre
+      t.string :artist
       t.string :is_active, default: true
 
       ## Recoverable

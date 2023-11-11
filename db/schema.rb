@@ -95,8 +95,10 @@ ActiveRecord::Schema.define(version: 2023_11_10_080421) do
     t.string "encrypted_password", default: "", null: false
     t.string "name"
     t.text "introduction"
-    t.string "prefectures"
+    t.string "prefecture"
     t.integer "age"
+    t.string "genre"
+    t.string "artist"
     t.string "is_active", default: "t"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
