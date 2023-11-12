@@ -20,16 +20,27 @@
             <td><%= @post.user.name %></td>
           </tr>
           <tr>
-            <td><%= @post.title %></td>
+            <td></td>
             <td class=<%= "favorite-" + @post.id.to_s %> >
               <%= render 'public/favorites/favorite', post: @post %>
             </td>
             <td><%= render "public/post_comments/counter", post: @post %></td>
           </tr>
           <tr>
+            <td><%= @post.title %></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
             <td><%= @post.body %></td>
             <td></td>
             <td></td>
+          </tr>
+          <tr>
+            <td colspan="3">タグ:<% @post_tags.each do |tag| %>
+                  <%= link_to tag.name,search_tag_path(tag_id: tag.id) %>
+                <% end %>
+            </td>
           </tr>
         </table>
 

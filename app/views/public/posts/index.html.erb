@@ -6,6 +6,13 @@
       <div class="d-flex justify-content-end">
       <%= render 'public/searches/form' %>
       </div>
+      <div class="d-flex justify-content-end">
+      <h6>タグ一覧</h6>
+        <% @tag_list.each do |list| %>
+          <%= link_to list.name, search_tag_path(tag_id: list.id) %>
+          <%= "(#{list.posts.count})" %>
+        <% end %>
+      </div>
       <%= render 'index', posts: @posts %>
     </div>
   </div>

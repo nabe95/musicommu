@@ -16,8 +16,11 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
     
-    #投稿検索機能
+    #キーワード検索
     get "search", to: "searches#search"
+    
+    #タグ検索
+    get "search_tag" => "posts#search_tag"
     
     # バンド募集
     resources :band_posts, only: [:new, :create, :index, :show, :edit, :update, :destroy]
