@@ -5,7 +5,7 @@
       <th>タイトル</th>
       <th></th>
       <th></th>
-      <th>ユーザー</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -17,9 +17,12 @@
         <%= render 'public/favorites/favorite', post: post %>
       </td>
       <td><%= render "public/post_comments/counter", post: post %></td>
-      <td><%= link_to(post.user) do %>
-        <%= image_tag post.user.get_profile_image, size:'50x50' %>
-        <%= post.user.name %></td>
+      <td>
+        <% if params[:action] == 'index' %>
+          <%= link_to(post.user) do %>
+            <%= image_tag post.user.get_profile_image, size:'50x50' %>
+            <%= post.user.name %></td>
+          <% end %>
         <% end %>
       </td>
     </tr>

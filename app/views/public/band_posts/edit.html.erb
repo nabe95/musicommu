@@ -1,26 +1,8 @@
 <div class="container">
   <div class="row justify-content-center mt-2 mb-2">
     <div class="col">
-      <h2>新規募集</h2>
-      <%= form_with model: @band_post do |f| %>
-      <h5>タイトル</h5>
-        <%= f.text_area :title %>
-      <h5>ジャンル</h5>
-        <%= f.text_field :genre %>
-      <h5>募集パート</h5>
-        <%= f.text_field :instrument %>
-      <h5>活動地域</h5>
-        <%= f.text_field :area %>
-      <h5>活動日</h5>
-        <%= f.select :activity, BandPost.activities.keys.map {|k| [I18n.t("enums.band_post.activity.#{k}"), k]} %>
-      <h5>方向性</h5>
-      <%= f.select :direction, BandPost.directions.keys.map {|k| [I18n.t("enums.band_post.direction.#{k}"), k]} %>
-      <h5>楽曲の種類</h5>
-      <%= f.select :band_type, BandPost.band_types.keys.map {|k| [I18n.t("enums.band_post.band_type.#{k}"), k]} %>
-      <h5>本文</h5>
-        <%= f.text_area :body %><br>
-      <%= f.submit '　変更　',class:"btn btn-success" %>
-      <% end %>
+      <h2>募集内容変更</h2>
+      <%= render 'public/band_posts/form', band_post: @band_post %>
     </div>
   </div>
 </div>

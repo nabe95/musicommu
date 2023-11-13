@@ -2,18 +2,7 @@
   <div class="row mt-2 mb-2">
     <div class="col">
       <h4>編集</h4>
-        <%= form_with model: @post do |f| %>
-      <h4>画像</h4>
-        <%= f.file_field :image, accept: "image/*" %>
-      <h4>タイトル</h4>
-        <%= f.text_field :title %>
-      <h4>本文</h4>
-        <%= f.text_area :body %><br>
-      <h4>タグ(,で区切ると複数のタグを登録できます)</h4>
-      <%= f.text_field :name,value: @tag_list %>
-      
-      <%= f.submit '　変更　',class:"btn btn-success" %>
-      <% end %>
+      <%= render 'public/posts/form', post: @post %>
     </div>
   </div>
 </div>

@@ -1,0 +1,26 @@
+<!--投稿の新規投稿(newアクション)と編集(editアクション)で使用-->
+<%= form_with model: band_post, local: true do |f| %>
+  <h5>タイトル</h5>
+    <%= f.text_area :title %>
+  <h5>ジャンル</h5>
+    <%= f.text_field :genre %>
+  <h5>募集パート</h5>
+    <%= f.text_field :instrument %>
+  <h5>活動地域</h5>
+    <%= f.text_field :area %>
+  <h5>活動日</h5>
+    <%= f.select :activity, BandPost.activities.keys.map {|k| [I18n.t("enums.band_post.activity.#{k}"), k]} %>
+  <h5>方向性</h5>
+    <%= f.select :direction, BandPost.directions.keys.map {|k| [I18n.t("enums.band_post.direction.#{k}"), k]} %>
+  <h5>楽曲の種類</h5>
+    <%= f.select :band_type, BandPost.band_types.keys.map {|k| [I18n.t("enums.band_post.band_type.#{k}"), k]} %>
+  <h5>本文</h5>
+    <%= f.text_area :body %><br>
+  
+  <!--新規か編集かによってボタンの表示を変える-->
+  <% if band_post.new_record? %>   
+    <%= f.submit '　投稿　',class:"btn btn-success" %>
+  <% else %>
+    <%= f.submit '　変更　',class:"btn btn-success" %>
+  <% end %>
+<% end %>
