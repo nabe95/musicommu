@@ -43,9 +43,9 @@
             </td>
           </tr>
         </table>
+            <%= render partial: 'public/comments/index', locals: { comments: @post.post_comments, post: @post } %>
+            <%= render partial: 'public/comments/form', locals: { object: @post, comment: @post_comment } %>
 
-            <%= render 'public/post_comments/index', post: @post %>
-            <%= render "public/post_comments/form", post: @post, post_comment: @post_comment %>
       </div>
 
   </div>
