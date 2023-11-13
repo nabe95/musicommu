@@ -1,0 +1,22 @@
+<table>
+  <tbody>
+      <% @band_post.band_comments.each do |band_comment| %>
+      <tr>
+        <td>
+          <%= link_to user_path(band_comment.user) do %>
+            <%= image_tag band_comment.user.get_profile_image, size:"50x50" %><br>
+            <%= band_comment.user.name %>
+          <% end %>
+        </td>
+        <td><%= band_comment.comment %></td>
+        <td>
+          <% if band_comment.user == current_user %>
+          <%= link_to " 削除 ", band_post_band_comment_path(band_post, band_comment), method: :delete, class: "btn btn-sm btn-danger", "data-confirm" => "本当に消しますか？" %>
+          <% end %>
+        </td>
+        <td>
+        </td>
+      </tr>
+      <% end %>
+  </tbody>
+</table>

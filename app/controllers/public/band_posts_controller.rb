@@ -17,6 +17,7 @@ class Public::BandPostsController < ApplicationController
 
   def show
     @band_post = BandPost.find(params[:id])
+    @band_comment = BandComment.new
   end
 
   def edit

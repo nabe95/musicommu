@@ -46,6 +46,7 @@
               <%= link_to '　編集　', edit_band_post_path(@band_post), class: "btn btn-sm btn-success" %>
               <%= link_to "　削除　", band_post_path(@band_post), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-sm btn-danger" %>
             <% end %>
-      
+            <%= render 'public/band_comments/index', band_post: @band_post %>
+            <%= render "public/band_comments/form", band_post: @band_post, band_comment: @band_comment %>
   </div>
 </div>

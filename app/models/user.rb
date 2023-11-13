@@ -6,8 +6,11 @@ class User < ApplicationRecord
 
   has_one_attached :profile_image
   has_many :posts, dependent: :destroy
+  has_many :band_posts, dependent: :destroy
   #コメント機能
   has_many :post_comments, dependent: :destroy
+  #バント募集コメント機能
+  has_many :band_comments, dependent: :destroy
   #いいね
   has_many :favorites, dependent: :destroy
 
