@@ -1,0 +1,2 @@
+<!--バンド募集のコメントを削除する時の非同期通信-->
+$('.band-post-comments-index').html("<%= j(render 'public/comments/index', comments: @band_post.band_comments, band_post: @comment.band_post) %>")

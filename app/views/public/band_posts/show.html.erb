@@ -47,8 +47,9 @@
           </tbody>
         </table>
 
-
+      <div class = "band-post-comments-index">
         <%= render partial: 'public/comments/index', locals: { comments: @band_post.band_comments, band_post: @band_post } %>
+      </div>
         <%= render partial: 'public/comments/form', locals: { object: @band_post, comment: @band_comment } %>
   </div>
 </div>

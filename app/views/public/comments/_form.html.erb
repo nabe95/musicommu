@@ -1,5 +1,5 @@
 <!--投稿とバンド募集でコメント欄を表示させるためのテンプレート-->
-<%= form_with(model: [object, comment], local: true) do |f| %>
-  <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに", class: "w-100" %>
+<%= form_with(model: [object, comment], local: false) do |f| %>
+  <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに", class:"w-100 comment-textarea" %>
   <%= f.submit "送信" %>
 <% end %>

@@ -24,7 +24,9 @@
             <td class=<%= "favorite-" + @post.id.to_s %> >
               <%= render 'public/favorites/favorite', post: @post %>
             </td>
-            <td><%= render "public/post_comments/counter", post: @post %></td>
+            <td class="post-comments-counter">
+              <%= render "public/post_comments/counter", post: @post %>
+            </td>
           </tr>
           <tr>
             <td><%= @post.title %></td>
@@ -43,7 +45,9 @@
             </td>
           </tr>
         </table>
+          <div class = "post-comments-index">
             <%= render partial: 'public/comments/index', locals: { comments: @post.post_comments, post: @post } %>
+          </div>
             <%= render partial: 'public/comments/form', locals: { object: @post, comment: @post_comment } %>
 
       </div>

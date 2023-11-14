@@ -1,0 +1,3 @@
+<!--バンド募集のコメントを追加する時の非同期通信-->
+$('.comment-textarea').val("")
+$('.band-post-comments-index').html("<%= j(render 'public/comments/index', comments: @band_post.band_comments, band_post: @comment.band_post) %>")
