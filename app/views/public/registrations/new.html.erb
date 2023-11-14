@@ -41,7 +41,7 @@
         </tr>
         </table>
       <% end %>
-
+      <%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
       <h3>既に登録済みの方</h3>
       <div>
         <%= link_to 'こちら', new_user_session_path,class: "ml-5" %>からログインしてください。

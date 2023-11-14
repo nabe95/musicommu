@@ -20,9 +20,13 @@
 
 <%= link_to "いいね一覧", favorites_user_path(@user), class: "btn btn-outline-danger btn-block" %>
 
+  <!--ゲストユーザーにはボタンを編集ボタンを非表示-->
+  <% if user.email != "guest@example.com" %>
   <!--ログインしているユーザー本人のみ編集ボタンを表示-->
-  <% if current_user && current_user == user %>
-    <%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block" do %>
-    <i class="fas fa-user-cog"></i>
+    <% if current_user && current_user == user %>
+      <%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block" do %>
+      <i class="fas fa-user-cog"></i>
+    <% end %>
   <% end %>
+
 <% end %>
