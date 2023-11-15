@@ -13,6 +13,9 @@ ja:
         notype: "指定なし"
         copy: "コピー"
         original: "オリジナル"
+      status:
+        public: "公開"
+        private: "非公開"
   activerecord:
     errors:
       messages:
