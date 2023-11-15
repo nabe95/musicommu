@@ -30,7 +30,9 @@ Rails.application.routes.draw do
     # ユーザー
     resources :users, only: [:index, :show, :edit, :update] do
       member do
-        get :favorites 
+        get :favorites
+        get :check
+        patch 'withdraw'
       end
     end
     

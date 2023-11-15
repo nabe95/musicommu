@@ -122,7 +122,7 @@ ActiveRecord::Schema.define(version: 2023_11_13_035019) do
     t.integer "age"
     t.string "genre"
     t.string "artist"
-    t.string "is_active", default: "t"
+    t.boolean "is_active", default: true
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

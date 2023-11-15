@@ -31,9 +31,23 @@ class User < ApplicationRecord
     find_or_create_by!(email: GUEST_USER_EMAIL) do |user|
       user.password = SecureRandom.urlsafe_base64
       user.name = "ゲスト"
-      user.age = "00"
-      user.prefecture = "？"
+      user.age = "0"
+      user.prefecture = "日本"
     end
+  end
+
+  #会員ステータス
+  def user_status
+    if is_active == false
+      "退会"
+    else
+      "有効"
+    end
+  end
+
+  #退会したら同じアカウントでログインできない
+  def active_for_authentication?
+    super && (is_active == true)
   end
 
 end

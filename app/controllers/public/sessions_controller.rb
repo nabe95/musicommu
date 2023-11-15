@@ -2,6 +2,7 @@
 
 class Public::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
+  before_action :reject_user, only: [:create]
 
   # GET /resource/sign_in
   # def new
@@ -30,4 +31,19 @@ class Public::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+  
+  protected
+  
+  def reject_user
+    @user = User.find_by(email: params[:user][:email])
+    if @user
+      if @user.valid_password?(params[:user][:password]) && (@user.is_active == false)
+        flash[:notice] = "退会済みです"
+        redirect_to new_user_session_path
+      end
+    else
+      flash[:error] = "必須項目を入力してください"
+    end
+  end
+  
 end
