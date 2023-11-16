@@ -3,7 +3,7 @@
     <div class="col-md-6">
       
       <h4><%= @user.name %>さんの会員情報編集</h4>
-            <%= form_with model:@user do |f| %>
+            <%= form_with model: @user, url: admin_user_path(@user.id), method: :patch do |f| %>
         <%= render "public/shared/error_messages", resource: @user %>
         <table>
           <tr>
