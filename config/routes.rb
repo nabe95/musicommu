@@ -45,7 +45,10 @@ Rails.application.routes.draw do
     #グループ機能
     resources :groups, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
       resource :group_users, only: [:create, :destroy]
+      #グループチャット
+      resources :messages, only: [:create]
     end
+
     
   end
 

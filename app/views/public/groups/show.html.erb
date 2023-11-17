@@ -1,35 +1,36 @@
 <div class = 'container'>
   <div class = 'row'>
-    <div class = 'col'>
-      <h4>グループ詳細</h4>
+    <div class = 'col-3'>
+      <h4><%= @group.name %>のトークルーム</h4>
       <table class = 'table table-hover table-inverse'>
-        <thead>
           <tr>
-            <th></th>
-            <th>グループ名</th>
-            <th>紹介文</th>
-            <th>メンバー</th>
-            <th colspan ="3"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
+            <td colspan="2">
               <% if @group.group_image.attached? %>
                 <%= image_tag @group.group_image,size:"50x50" %>
               <% else %>
                 <%= image_tag 'no_image',size:"50x50" %>
               <% end %>
             </td>
+          </tr>
+          <tr>
+            <th>グループ名</th>
             <td><%= @group.name %></td>
+          </tr>
+          <tr>
+            <th>紹介文</th>
             <td><%= @group.introduction %></td>
+          </tr>
+          <tr>
+            <th>メンバー</th>
             <td>
               <% @group.users.each do |user| %>
               <li style="list-style: none;">
               <%= user.name %>
               <% end %>
             </td>
-            <td>
+            </tr>
+            <tr>
+            <td colspan="2">
               <% if @group.owner_id == current_user.id %>
                 <%= link_to '編集', edit_group_path(@group), class: "btn btn-sm btn-success" %>
               <% elsif @group.includesUser?(current_user)%>
@@ -40,6 +41,9 @@
           </tr>
         </tbody>
       </table>
+    </div>
+    <div class = 'col-7'>
+      <%= render partial: 'message', locals: { messages: @messages, my_user_id: @my_user_id, message: @message, group: @group } %>
     </div>
   </div>
 </div>

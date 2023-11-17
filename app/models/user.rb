@@ -15,6 +15,8 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   #グループ機能
   has_many :group_users, dependent: :destroy
+  # グループチャットメッセージ
+  has_many :messages, dependent: :destroy
 
   validates :name, length:{ minimum:2, maximum: 20}, uniqueness: true
   validates :introduction, length: {maximum: 50}

@@ -9,7 +9,10 @@ class Public::GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
-    @user = User.find(params[:id])
+    @messages = @group.messages
+    @message = Message.new
+    #Roomで相手の名前表示するために記述
+    @my_user_id = current_user.id
   end
 
   def new
