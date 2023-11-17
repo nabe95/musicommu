@@ -13,6 +13,8 @@ class User < ApplicationRecord
   has_many :band_comments, dependent: :destroy
   #いいね
   has_many :favorites, dependent: :destroy
+  #グループ機能
+  has_many :group_users, dependent: :destroy
 
   validates :name, length:{ minimum:2, maximum: 20}, uniqueness: true
   validates :introduction, length: {maximum: 50}

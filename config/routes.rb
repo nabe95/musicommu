@@ -41,6 +41,10 @@ Rails.application.routes.draw do
       resources :post_comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
     end
+    
+    #グループ機能
+    resources :groups, only: [:new, :create, :index, :show, :edit, :update, :destroy]
+    
   end
 
   #管理者ルーティング

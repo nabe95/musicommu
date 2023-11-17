@@ -18,8 +18,8 @@ class Public::PostsController < ApplicationController
   def index
     #退会したユーザーのを表示させない
     @posts = Post.joins(:user).where(users: { is_active: true })
-                              .order(created_at: :desc) #新規投稿順
-                              .page(params[:page]).per(1) #ページネーション
+                  .order(created_at: :desc) #新規投稿順
+                  .page(params[:page]).per(1) #ページネーション
     @user = current_user
     @tag_list = Tag.all
   end
