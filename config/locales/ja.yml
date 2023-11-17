@@ -1,4 +1,11 @@
 ja:
+  views:
+    pagination:
+      first: '最初'
+      last: '最後'
+      previous: '前'
+      next: '次'
+      truncate: '...'
   enums:
     band_post:
       activity:
@@ -23,6 +30,20 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+    models:
+      post: "投稿"
+      band_post: "バンド募集"
+    attributes:
+      post:
+        title: "タイトル"
+        body: "本文"
+      band_post:
+        title: "タイトル"
+        body: "本文"
+        genre: "ジャンル"
+        area: "活動地域"
+        instrument: "募集パート"
+
   date:
     abbr_day_names:
     - 日

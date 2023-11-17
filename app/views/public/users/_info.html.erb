@@ -3,6 +3,7 @@
     <td><%= image_tag user.get_profile_image, size:'100x100' %></td>
     <td style="vertical-align: middle; height: 100px;"><%= user.name %></td>
   </tr>
+  <% if user.is_active? %> <!-- ユーザーが退会している場合に表示しない -->
   <tr>
     <td colspan="2"><自己紹介><br><%= user.introduction %></td>
   </tr>
@@ -16,9 +17,13 @@
     <td><%= user.prefecture %></td>
     <td><%= user.age %>歳</td>
   </tr>
+  <tr>
+  <td colspan="2"><%= link_to "いいね一覧", favorites_user_path(@user), class: "btn btn-outline-danger btn-block" %></td>
+  </tr>
+   <% end %>
 </table>
 
-<%= link_to "いいね一覧", favorites_user_path(@user), class: "btn btn-outline-danger btn-block" %>
+
 
   <!--ゲストユーザーにはボタンを編集ボタンを非表示-->
   <% if user.email != "guest@example.com" %>

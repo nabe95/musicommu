@@ -47,6 +47,8 @@ Rails.application.routes.draw do
   namespace :admin do
     get '/' => 'homes#top'
     resources :users, only: [:index, :show, :edit, :update]
+    resources :post_comments, only: [:index, :destroy]
+    resources :band_comments, only: [:index, :destroy]
   end
   
   #ゲストログイン

@@ -5,9 +5,19 @@
       <%= render 'info', user: @user %>
     </div>
     
-    <div class ="col-md-9">
-      <%= render 'public/posts/index', posts: @posts %>
-    </div>
+      <!--会員が有効か退会かで表示-->
+      <% if @user.is_active? %>
+      <div class ="col-md-9">
+        <%= render 'public/posts/index', posts: @posts %>
+        <div class ="d-flex justify-content-center">
+        <%= paginate @posts %>
+        </div>
+      </div>
+      <% else %>
+      <div class="col-md-9 text-center">
+        <p class="alert alert-danger">このユーザーは退会済みです。</p>
+      </div>
+      <% end %>
       
   </div>
 </div>

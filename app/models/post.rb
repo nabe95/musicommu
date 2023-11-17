@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
   belongs_to :user
 
+  #投稿イメージ写真を載せる
   has_one_attached :image
   #コメント機能
   has_many :post_comments, dependent: :destroy
@@ -27,14 +28,17 @@ class Post < ApplicationRecord
     favorites.where(user_id: user.id).exists?
   end
 
-  #部分検索　Post.search_for(@content)を@recordへ
+  #部分 キーワード検索　Post.search_for(@content)を@recordへ
   def self.search_for(content,method)
+    #タイトルと本文内を検索
     if method == "both"
     Post.where('title LIKE?', '%'+content+'%').or(Post.where('body LIKE?', '%'+content+'%'))
+    #タイトルを検索
     elsif  method == "title"
     Post.where('title LIKE?', '%'+content+'%')
+    #本文内を検索
     elsif method == "body"
-      Post.where('body LIKE?', '%'+content+'%')
+    Post.where('body LIKE?', '%'+content+'%')
     end
   end
   

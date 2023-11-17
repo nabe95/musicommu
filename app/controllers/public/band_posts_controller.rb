@@ -8,8 +8,11 @@ class Public::BandPostsController < ApplicationController
   def create
     @band_post = BandPost.new(band_post_params)
     @band_post.user_id = current_user.id
-    @band_post.save
-    redirect_to band_posts_path
+    if @band_post.save
+      redirect_to band_posts_path, notice:"投稿しました"
+    else
+      render "new"
+    end
   end
 
   def index
@@ -19,7 +22,10 @@ class Public::BandPostsController < ApplicationController
     # 他のユーザーが作成した公開された投稿を取得と
     public_posts = BandPost.where(status: :public).where.not(user: @user)
     # ユーザーが作成した投稿と他のユーザーが作成した公開投稿を結合
-    @band_posts = user_posts.or(public_posts)
+    @band_posts = user_posts.or(public_posts).joins(:user)
+                  .where(users: { is_active: true }) #退会したユーザーの投稿を表示させない
+                  .order(created_at: :desc) #新規投稿順
+                  .page(params[:page]).per(1) #ページネーション
   end
 
   def show
@@ -38,8 +44,11 @@ class Public::BandPostsController < ApplicationController
 
   def update
     @band_post = BandPost.find(params[:id])
-    @band_post.update(band_post_params)
-    redirect_to band_post_path(@band_post.id)
+    if @band_post.update(band_post_params)
+      redirect_to band_post_path(@band_post.id), notice:"投稿しました"
+    else
+      render "edit"
+    end
   end
 
   def destroy

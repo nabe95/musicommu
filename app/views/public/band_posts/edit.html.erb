@@ -2,6 +2,7 @@
   <div class="row justify-content-center mt-2 mb-2">
     <div class="col">
       <h2>募集内容変更</h2>
+      <%= render "public/shared/error_messages", resource: @band_post %>
       <%= render 'public/band_posts/form', band_post: @band_post %>
     </div>
   </div>
