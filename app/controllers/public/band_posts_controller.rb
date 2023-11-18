@@ -25,7 +25,7 @@ class Public::BandPostsController < ApplicationController
     @band_posts = user_posts.or(public_posts).joins(:user)
                   .where(users: { is_active: true }) #退会したユーザーの投稿を表示させない
                   .order(created_at: :desc) #新規投稿順
-                  .page(params[:page]).per(1) #ページネーション
+                  .page(params[:page]).per(6) #ページネーション
   end
 
   def show

@@ -3,12 +3,13 @@ class Public::UsersController < ApplicationController
   before_action :ensure_guest_user, only: [:edit]
 
   def index
-    @users = User.where(is_active: true).page(params[:page]).per(1) #退会したユーザーは表示させない
+    #退会したユーザーは表示させない
+    @users = User.where(is_active: true).page(params[:page]).per(10)
   end
 
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts.order(created_at: :desc).page(params[:page]).per(1)
+    @posts = @user.posts.order(created_at: :desc).page(params[:page]).per(10)
   end
 
   def edit
