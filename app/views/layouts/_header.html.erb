@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class = "container" >
+
+    <%= link_to root_path do %>
+      <%= image_tag "no_image.jpg" %>
+    <% end %>
+
+    <div class = "ml-auto">
+      <div class="row justify-content-between align-items-center">
+
+        <% if user_signed_in? %>
+          <div class="col text-center" style="color: white;">ようこそ、<%= current_user.name %>さん!</div>
+
+          <%= link_to "投稿一覧", posts_path, class:"btn btn-info m-2" %>
+          <%= link_to "募集一覧", band_posts_path, class:"btn btn-info m-2" %>
+          <%= link_to "ユーザー", users_path, class:"btn btn-info m-2" %>
+          <%= link_to "マイページ", user_path(current_user.id), class:"btn btn-info m-2" %>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"btn btn-info m-2" %>
+        <% elsif admin_signed_in? %>
+          <%= link_to "募集コメント", admin_band_comments_path, class:"btn btn-info m-2" %>
+          <%= link_to "投稿コメント", admin_post_comments_path, class:"btn btn-info m-2" %>
+          <%= link_to "ユーザー", admin_users_path, class:"btn btn-info m-2" %>
+          <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class:"btn btn-info m-2" %>
+        <% else %>
+          <%= link_to "新規登録", new_user_registration_path, class:"btn btn-info m-2" %>
+          <%= link_to "ログイン", new_user_session_path, class:"btn btn-info m-2" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</nav>

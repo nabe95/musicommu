@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="row mt-2 mb-2">
+    <div class='col-md-6'>
+      <h4>募集詳細</h4>
+        <% if @band_post.user == current_user %>
+          <%= link_to '　編集　', edit_band_post_path(@band_post), class: "btn btn-sm btn-success" %>
+          <%= link_to "　削除　", band_post_path(@band_post), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-sm btn-danger" %>
+        <% end %>
+        <table class='table table-hover table-inverse'>
+          <thead>
+            <td><%= @band_post.created_at.strftime("%Y/%m/%d %H:%M")%></td>
+            <td><%= link_to(@band_post.user) do %>
+                <%= @band_post.user.name %>
+                <% end %>
+            </td>
+          </thead>
+          <tbody>
+          <tr>
+            <th><%= @band_post.title %></th>
+            <td></td>
+          </tr>
+          <tr>
+            <td>ジャンル: <%= @band_post.genre %></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>募集パート: <%= @band_post.instrument %></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>活動地域: <%= @band_post.area %></td>
+            <td></td>
+          </tr>
+           <tr>
+            <td>活動日: <%= @band_post.activity_i18n %></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>バンドの方向性: <%= @band_post.direction_i18n %></td>
+            <td></td>
+          </tr>
+           <tr>
+            <td>楽曲の種類: <%= @band_post.band_type_i18n %></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><%= @band_post.body %></td>
+            <td></td>
+          </tr>
+          </tbody>
+        </table>
+
+      <div class = "band-post-comments-index">
+        <%= render partial: 'public/comments/index', locals: { comments: @band_post.band_comments, band_post: @band_post } %>
+      </div>
+        <%= render partial: 'public/comments/form', locals: { object: @band_post, comment: @band_comment } %>
+  </div>
+</div>

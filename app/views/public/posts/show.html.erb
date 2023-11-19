@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row mt-2 mb-2">
+
+    <h4>投稿詳細</h4>
+
+      <div class='col-md-2'>
+      <%= image_tag @post.get_image, size:"200x200" %>
+      
+      </div>
+
+      <div class='col-md-7 offset-md-1'>
+        <% if @post.user == current_user %>
+          <%= link_to '　編集　', edit_post_path(@post), class: "btn btn-sm btn-success" %>
+          <%= link_to "　削除　", post_path(@post), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-sm btn-danger" %>
+        <% end %>
+        <table class='table table-hover table-inverse'>
+          <tr>
+            <td><%= @post.created_at.strftime("%Y/%m/%d %H:%M")%></td>
+            <td></td>
+            <td><%= @post.user.name %></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td class=<%= "favorite-" + @post.id.to_s %> >
+              <%= render 'public/favorites/favorite', post: @post %>
+            </td>
+            <td class="post-comments-counter">
+              <%= render "public/post_comments/counter", post: @post %>
+            </td>
+          </tr>
+          <tr>
+            <td><%= @post.title %></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><%= @post.body %></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td colspan="3">タグ:<% @post_tags.each do |tag| %>
+                  <%= link_to tag.name,search_tag_path(tag_id: tag.id) %>
+                <% end %>
+            </td>
+          </tr>
+        </table>
+          <div class = "post-comments-index">
+            <%= render partial: 'public/comments/index', locals: { comments: @post.post_comments, post: @post } %>
+          </div>
+            <%= render partial: 'public/comments/form', locals: { object: @post, comment: @post_comment } %>
+
+      </div>
+
+  </div>
+</div>

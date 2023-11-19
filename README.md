@@ -20,7 +20,7 @@
 - 同じジャンルや好きなバンドが一緒の方とグループで雑談する時
 
 ## 設計書
-後ほど作成
+- [実装機能リスト](https://docs.google.com/spreadsheets/d/1x1ill3eqfte-8SZHkISl9I4pbArrTM_blnp04PXZ_Ec/edit?usp=sharing)
 - [テーブル定義書](https://docs.google.com/spreadsheets/d/1ZS1GIwJXYXZVv02q2vwgRq-zllDCaU58nzXX6eeNL2I/edit?usp=sharing)
 - [ER図](https://drive.google.com/file/d/1mpdVLah8i3HdgWfB9jxXqrhgSNiQ8R92/view?usp=sharing)
 ​

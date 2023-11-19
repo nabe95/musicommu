@@ -1,0 +1,31 @@
+<table class='table table-hover table-inverse'>
+  <thead>
+    <tr>
+      <th>投稿日</th>
+      <th>タイトル</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% posts.each do |post| %>
+    <tr>
+      <td><%= post.created_at.strftime("%Y/%m/%d %H:%M")%></td>
+      <td><%= link_to post.title,post %></td>
+      <td class=<%= "favorite-" + post.id.to_s %> >
+        <%= render 'public/favorites/favorite', post: post %>
+      </td>
+      <td><%= render "public/post_comments/counter", post: post %></td>
+      <td>
+        <% if params[:action] == 'index'or'search_tag' %>
+          <%= link_to(post.user) do %>
+            <%= image_tag post.user.get_profile_image, size:'50x50' %>
+            <%= post.user.name %></td>
+          <% end %>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

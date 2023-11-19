@@ -1,0 +1,26 @@
+<table>
+  <tbody>
+      <% comments.each do |comment| %>
+      <tr>
+        <td>
+          <%= link_to user_path(comment.user) do %>
+            <%= image_tag comment.user.get_profile_image, size:"50x50" %><br>
+            <%= comment.user.name %>
+          <% end %>
+        </td>
+        <td><%= comment.comment %></td>
+        <td>
+        <% if comment.user == current_user %>
+          <% if comment.instance_of?(BandComment) %>
+            <%= link_to " 削除 ", band_post_band_comment_path(band_post, comment), method: :delete, remote: true, class: "btn btn-sm btn-danger", "data-confirm" => "本当に消しますか？" %>
+          <% elsif comment.instance_of?(PostComment) %>
+            <%= link_to " 削除 ", post_post_comment_path(post, comment), method: :delete, remote: true, class: "btn btn-sm btn-danger", "data-confirm" => "本当に消しますか？" %>
+          <% end %>
+        <% end %>
+        </td>
+        <td>
+        </td>
+      </tr>
+      <% end %>
+  </tbody>
+</table>

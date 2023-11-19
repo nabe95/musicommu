@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      
+      <h4><%= @user.name %>さんの会員詳細</h4>
+      <table class='table'>
+        <tr>
+          <th>プロフィール画像</th>
+          <td><%= image_tag @user.get_profile_image, size:'100x100' %></td>
+        </tr>
+        <tr>
+          <th>名前</th>
+          <td><%= @user.name %></td>
+        </tr>
+        <tr>
+          <th>自己紹介</th>
+          <td><%= @user.introduction %></td>
+        </tr>
+        <tr>
+          <th>好きなジャンル</th>
+          <td><%= @user.genre %></td>
+        </tr>
+        <tr>
+          <th>好きなアーティスト</th>
+          <td><%= @user.artist %></td>
+        </tr>
+        <tr>
+          <th>住所</th>
+          <td><%= @user.prefecture %></td>
+        </tr>
+        <tr>
+          <th>年齢</th>
+          <td><%= @user.age %>歳</td>
+        </tr>
+        <tr>
+            <th>会員ステータス</th>
+            <% if @user.is_active == true %>
+              <td class="text-success">有効</td>
+            <% else %>
+              <td class="text-danger">退会</td>
+            <% end %>
+          </tr>
+        <tr>
+          <th></th>
+          <td><%= link_to "編集する",edit_admin_user_path, class: "btn btn-success"%> </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

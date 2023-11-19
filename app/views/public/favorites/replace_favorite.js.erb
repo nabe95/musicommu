@@ -1,0 +1,2 @@
+<!--非同期通信によりrender先-->
+$('.favorite-<%= @favorite.post_id %>').html("<%= j(render 'public/favorites/favorite', post: @favorite.post ) %>")

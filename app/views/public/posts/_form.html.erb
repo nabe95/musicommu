@@ -1,0 +1,18 @@
+<!--投稿の新規投稿(newアクション)と編集(editアクション)で使用-->
+<%= form_with model: post, local: true do |f| %>
+  <h4>画像</h4>
+    <%= f.file_field :image, accept: "image/*" %>
+  <h4>タイトル</h4>
+    <%= f.text_field :title %>
+  <h4>本文</h4>
+    <%= f.text_area :body %><br>
+  <h4>タグ(,で区切ると複数のタグを登録できます)</h4>
+    <%= f.text_field :name,value: @tag_list %>
+
+    <!--新規か編集かによってボタンの表示を変える-->
+    <% if post.new_record? %>
+      <%= f.submit '　投稿　',class:"btn btn-success" %>
+    <% else %>
+      <%= f.submit '　変更　',class:"btn btn-success" %>
+    <% end %>
+<% end %>
