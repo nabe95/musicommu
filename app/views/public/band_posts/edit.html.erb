@@ -1,9 +1,11 @@
 <div class="container">
-  <div class="row my-2 offset-1">
-    <h2>募集内容変更</h2>
-  </div>
   <div class="row justify-content-center my-2 ">
-    <%= render "public/shared/error_messages", resource: @band_post %>
-    <%= render 'public/band_posts/form', band_post: @band_post %>
+    <div class ="col-md-7">
+      <div class="text-center my-2">
+        <h3>募集内容変更</h3>
+      </div>
+      <%= render "public/shared/error_messages", resource: @band_post %>
+      <%= render 'public/band_posts/form', band_post: @band_post %>
+    </div>
   </div>
 </div>

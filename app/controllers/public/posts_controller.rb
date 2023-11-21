@@ -32,11 +32,13 @@ class Public::PostsController < ApplicationController
   end
 
   def edit
+    is_matching_login_user
     @post = Post.find(params[:id])
     @tag_list = @post.tags.pluck(:name).join(',')
   end
 
   def update
+    is_matching_login_user
     @post = Post.find(params[:id])
     tag_list=params[:post][:name].split(',')
     if @post.update(post_params)
@@ -66,4 +68,13 @@ class Public::PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:title, :body, :image, tags: [:name])
   end
+  
+  #他のユーザーがアクセスできないようにする
+  def is_matching_login_user
+    post = Post.find(params[:id])
+    unless post.user_id == current_user.id
+      redirect_to posts_path
+    end
+  end
+  
 end

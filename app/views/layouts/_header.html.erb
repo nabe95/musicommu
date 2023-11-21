@@ -2,11 +2,13 @@
   <div class = "container" >
 
     <%= link_to root_path do %>
-      <%= image_tag "icon.jpg", size: '240x80' %>
+      <%= image_tag "icon.jpg", size: '210x70' %>
     <% end %>
 
     <% if user_signed_in? %>
-      <div class="col text-center" style="color: white;">ようこそ、<%= current_user.name %>さん!</div>
+      <div class="col-3 text-center" style="color: white;">
+        ようこそ、<%= current_user.name %>さん
+      </div>
     <% end %>
 
 
@@ -18,19 +20,29 @@
       <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
         <li class="nav-item">
-          <%= link_to "投稿一覧", posts_path, class: 'nav-link text-white' %>
+          <%= link_to posts_path, class: 'nav-link text-white' do %>
+            投稿一覧<i class="fas fa-music"></i>
+          <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to "募集一覧", band_posts_path, class: 'nav-link text-white' %>
+          <%= link_to band_posts_path, class: 'nav-link text-white' do%>
+          募集一覧<i class="fas fa-guitar"></i>
+          <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to "ユーザー", users_path, class: 'nav-link text-white' %>
+          <%= link_to users_path, class: 'nav-link text-white' do %>
+            ユーザー <i class="fas fa-users"></i>
+          <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to "マイページ", user_path(current_user.id), class: 'nav-link text-white' %>
+          <%= link_to user_path(current_user.id), class: 'nav-link text-white' do %>
+            マイページ<i class="fas fa-user"></i>
+          <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-white' %>
+          <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-white' do %>
+            ログアウト<i class="fas fa-sign-out-alt"></i>
+          <% end %>
         </li>
         <% elsif admin_signed_in? %>
         <li class="nav-item">
@@ -47,10 +59,14 @@
         </li>
         <% else %>
         <li class="nav-item">
-          <%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-white' %>
+          <%= link_to new_user_registration_path, class: 'nav-link text-white' do %>
+            新規登録<i class="fas fa-user-plus"></i>
+          <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to "ログイン", new_user_session_path, class: 'nav-link text-white' %>
+          <%= link_to new_user_session_path, class: 'nav-link text-white' do %>
+            ログイン<i class="fas fa-sign-in-alt"></i>
+          <% end %>
         </li>
         <% end %>
       </ul>

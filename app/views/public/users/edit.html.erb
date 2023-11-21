@@ -1,10 +1,9 @@
 <div class="container">
-  <div class="row my-2 offset-1">
-    <h2>プロフィール編集</h2>
-  </div>
-  
   <div class="row justify-content-center my-2 ">
-      
+    <div class ="col-md-8">
+      <div class="text-center my-2">
+        <h3>プロフィール編集</h3>
+      </div>
       <%= form_with model:@user do |f| %>
         <%= render "public/shared/error_messages", resource: @user %>
       <div class="text-right mb-3">
@@ -46,5 +45,6 @@
         </table>
       <% end %>
 
+    </div>
   </div>
 </div>
