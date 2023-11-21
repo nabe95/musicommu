@@ -2,6 +2,7 @@
   <% messages.each do |message| %>
     <% my_user_id == message.user.id %>
   <table>
+    <tr>
     <td>
       <%= link_to user_path(message.user) do %>
         <%= image_tag message.user.get_profile_image, size: "50x50" %><br>
@@ -12,6 +13,7 @@
     <td>
       <p><%= message.message %></p>
     </td>
+    </tr>
   </table>
   <% end %>
 <% end %>

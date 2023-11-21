@@ -33,6 +33,8 @@ Rails.application.routes.draw do
         get :favorites
         get :check
         patch 'withdraw'
+        get :bands
+        get :groups
       end
     end
     

@@ -19,10 +19,12 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
 
   validates :name, length:{ minimum:2, maximum: 20}, uniqueness: true
-  validates :introduction, length: {maximum: 50}
+  validates :introduction, length: {maximum: 30}
   validates :age, presence: true
   validates :prefecture, presence: true
-
+  validates :genre, length: {maximum: 10}
+  validates :artist, length: {maximum: 30}
+  
   #プロフィールの写真
   def get_profile_image
     (profile_image.attached?) ? profile_image : 'no_image.jpg'

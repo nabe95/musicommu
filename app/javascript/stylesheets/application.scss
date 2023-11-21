@@ -1,8 +1,37 @@
 @use '~bootstrap/scss/bootstrap';
 header {
-  background-color: #17184b;
+  background-color: #053C5E;
+}
+
+body {
+  font-family: sans-serif;
+  font-size: 15px;
+  background-color: #f4f9ff;
 }
 
 footer {
-  background-color: #17184b;
+  background-color: #053C5E;
+}
+
+th {
+  background-color: #3994ac;
+  color: white;
+}
+
+/* Kaminariのページネーションのスタイル */
+.pagination {
+  background-color: #215d73; /* ページネーションの背景色を設定 */
+  border-radius: 4px; /* 角丸の半径を設定 */
+}
+
+/* オプション: ページネーションリンクの色を変更 */
+.pagination a {
+  color: #215d73; /* テキスト色を設定 */
+}
+
+/* オプション: アクティブなページの色を変更 */
+.pagination .page-item.active a {
+  background-color: #215d73; /* 背景色を設定 */
+  border-color: #215d73; /* ボーダー色を設定 */
+  color: #ffffff; /* テキスト色を設定 */
 }

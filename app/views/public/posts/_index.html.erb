@@ -18,7 +18,7 @@
       </td>
       <td><%= render "public/post_comments/counter", post: post %></td>
       <td>
-        <% if params[:action] == 'index'or'search_tag' %>
+        <% if params[:action] == 'index' || params[:action] == 'search_tag' %>
           <%= link_to(post.user) do %>
             <%= image_tag post.user.get_profile_image, size:'50x50' %>
             <%= post.user.name %></td>

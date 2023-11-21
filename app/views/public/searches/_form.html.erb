@@ -2,7 +2,7 @@
 <%= form_with url: search_path,method: :get, local: true do |f| %>
   <%= f.select :method, options_for_select([["全て", "both"], ["タイトル", "title"], ["内容", "body"]]) %>
   <%= f.text_field :content, placeholder: "キーワードを入力" %>
-  <%= f.button class: "btn btn-primary" do %>
+  <%= f.button class: "btn btn-sm btn-secondary" do %>
   <i class="fas fa-search"></i> 検索
   <% end %>
 <% end %>

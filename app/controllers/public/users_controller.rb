@@ -31,7 +31,21 @@ class Public::UsersController < ApplicationController
     favorites = Favorite.where(user_id: @user.id).pluck(:post_id)
     @favorite_posts = Post.find(favorites)
   end
+  
+  #ユーザーが投稿したバンド募集一覧
+  def bands
+    @user = User.find(params[:id])
+    @band_posts = current_user.band_posts.order(created_at: :desc)
+                                          .page(params[:page]).per(6)
+  end
+  
+  #ユーザーが参加しているグループ
+  def groups
+    @user = User.find(params[:id])
+    @groups = @user.group_users.map(&:group)
+  end
 
+  # 論理的削除、退会処理
   def withdraw
     @user = User.find(current_user.id)
     @user.update(is_active: false)

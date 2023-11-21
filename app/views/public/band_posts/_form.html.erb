@@ -1,38 +1,61 @@
 <!--投稿の新規投稿(newアクション)と編集(editアクション)で使用-->
 <%= form_with model: band_post, local: true do |f| %>
-  <h5>タイトル</h5>
-    <%= f.text_area :title %>
-  <h5>ジャンル</h5>
-    <%= f.text_field :genre %>
-  <h5>募集パート</h5>
-    <%= f.text_field :instrument %>
-  <h5>活動地域</h5>
-    <%= f.text_field :area %>
-  <h5>活動日</h5>
-    <%= f.select :activity, BandPost.activities.keys.map {|k| [I18n.t("enums.band_post.activity.#{k}"), k]} %>
-  <h5>方向性</h5>
-    <%= f.select :direction, BandPost.directions.keys.map {|k| [I18n.t("enums.band_post.direction.#{k}"), k]} %>
-  <h5>楽曲の種類</h5>
-    <%= f.select :band_type, BandPost.band_types.keys.map {|k| [I18n.t("enums.band_post.band_type.#{k}"), k]} %>
-  <h5>本文</h5>
-    <%= f.text_area :body %><br>
-
-  <div>
-  <%= f.label(:public, for:nil, class: 'post-status_label') do %>
-    <%= f.radio_button :status, :public %>
-    <%= I18n.t('enums.band_post.status.public') %>
-  <% end %>
-  <%= f.label(:private, for:nil, class: 'post-status_label') do %>
-    <%= f.radio_button :status, :private %>
-    <%= I18n.t('enums.band_post.status.private') %>
-  <% end %>
-  </div>
-
-  <!--新規か編集かによってボタンの表示を変える-->
-  <% if band_post.new_record? %>
-    <%= f.submit '　投稿　',class:"btn btn-success" %>
-  <% else %>
-    <%= f.submit '　変更　',class:"btn btn-success" %>
-  <% end %>
-
+  <table class="table table-borderless">
+    <tr>
+      <td>タイトル</td>
+      <td><%= f.text_field :title, style: "width: 300px;" %></td>
+    </tr>
+     <tr>
+       <td>ジャンル</td>
+       <td><%= f.text_field :genre, style: "width: 300px;" %></td>
+     </tr>
+     <tr>
+       <td>募集パート</td>
+       <td><%= f.text_field :instrument, style: "width: 300px;" %></td>
+     </tr>
+     <tr>
+       <td>活動地域</td>
+       <td><%= f.text_field :area, style: "width: 300px;" %></td>
+     </tr>
+     <tr>
+       <td>活動日</td>
+       <td><%= f.select :activity, BandPost.activities.keys.map {|k| [I18n.t("enums.band_post.activity.#{k}"), k]} %></td>
+     </tr>
+     <tr>
+       <td>方向性</td>
+       <td><%= f.select :direction, BandPost.directions.keys.map {|k| [I18n.t("enums.band_post.direction.#{k}"), k]} %></td>
+     </tr>
+     <tr>
+       <td>楽曲の種類</td>
+       <td><%= f.select :band_type, BandPost.band_types.keys.map {|k| [I18n.t("enums.band_post.band_type.#{k}"), k]} %></td>
+     </tr>
+     <tr>
+       <td>本文</td>
+       <td><%= f.text_area :body, style: "width: 300px;" %></td>
+     </tr>
+     <tr>
+       <td></td>
+      <td>
+        <%= f.label(:public, for:nil, class: 'post-status_label') do %>
+          <%= f.radio_button :status, :public %>
+          <%= I18n.t('enums.band_post.status.public') %>
+        <% end %>
+        <%= f.label(:private, for:nil, class: 'post-status_label') do %>
+          <%= f.radio_button :status, :private %>
+          <%= I18n.t('enums.band_post.status.private') %>
+        <% end %>
+      </td>
+     </tr>
+     <tr>
+       <td></td>
+       <td>
+        <!--新規か編集かによってボタンの表示を変える-->
+        <% if band_post.new_record? %>
+          <%= f.submit '　投稿　',class:"btn btn-sm btn-success" %>
+        <% else %>
+          <%= f.submit '　変更　',class:"btn btn-sm btn-success" %>
+        <% end %>
+       </td>
+     </tr>
+  </table>
 <% end %>

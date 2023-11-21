@@ -1,47 +1,50 @@
 <div class="container">
-  <div class="row my-2">
-    <div class="col">
-
-      <h2>プロフィール編集</h2>
+  <div class="row my-2 offset-1">
+    <h2>プロフィール編集</h2>
+  </div>
+  
+  <div class="row justify-content-center my-2 ">
+      
       <%= form_with model:@user do |f| %>
         <%= render "public/shared/error_messages", resource: @user %>
-        <table>
+      <div class="text-right mb-3">
+        <%= link_to "　退会する　", check_user_path(current_user.id), class:"btn btn-sm btn-danger" %>
+      </div>
+        <table class="table table-borderless">
           <tr>
-            <th>プロフィール画像</th>
+            <td>プロフィール画像</td>
             <td><%= f.file_field :profile_image, accept: "image/*" %></td>
           </tr>
           <tr>
-            <th>名前(ニックネーム)</th>
-            <td><%= f.text_field :name %></td>
+            <td>名前(ニックネーム)</td>
+            <td><%= f.text_field :name, style: "width: 300px;" %></td>
           </tr>
           <tr>
-            <th>自己紹介</th>
-            <td><%= f.text_field :introduction %></td>
+            <td>自己紹介</td>
+            <td><%= f.text_field :introduction, style: "width: 300px;" %></td>
           </tr>
           <tr>
-            <th>年齢</th>
-            <td><%= f.text_field :age %></td>
+            <td>年齢</td>
+            <td><%= f.text_field :age, style: "width: 300px;" %></td>
           </tr>
           <tr>
-            <th>都道府県</th>
-            <td><%= f.text_field :prefecture %></td>
+            <td>都道府県</td>
+            <td><%= f.text_field :prefecture, style: "width: 300px;" %></td>
           </tr>
           <tr>
-            <th>好きなジャンル</th>
-            <td><%= f.text_field :genre %></td>
+            <td>好きなジャンル</td>
+            <td><%= f.text_field :genre, style: "width: 300px;" %></td>
           </tr>
           <tr>
-            <th>好きなアーティスト</th>
-            <td><%= f.text_field :artist %></td>
+            <td>好きなアーティスト</td>
+            <td><%= f.text_field :artist, style: "width: 300px;" %></td>
           </tr>
           <tr>
             <td></td>
-            <td><%= f.submit class: 'btn btn-secondary' %></td>
+            <td><%= f.submit class: 'btn btn-sm btn-secondary' %></td>
           </tr>
         </table>
       <% end %>
 
-      <%= link_to "　退会する　", check_user_path(current_user.id), class:"btn btn-danger" %>
-    </div>
   </div>
 </div>
