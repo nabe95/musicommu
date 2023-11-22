@@ -27,20 +27,10 @@
               <%= user.name %>
               <% end %>
             </td>
-            </tr>
-            <tr>
-            <td></td>
-            <td>
-              <% if @group.owner_id == current_user.id %>
-                <%= link_to '編集', edit_group_path(@group), class: "btn btn-sm btn-success" %>
-              <% elsif @group.includesUser?(current_user)%>
-                <%= link_to ' 退出する ', group_group_users_path(@group), method: :delete, class: "btn btn-sm btn-danger" %>
-              <% else %>
-　　            <%= link_to ' 参加する ', group_group_users_path(@group), method: :post, class: "btn btn-sm btn-success" %>
-              <% end %>
           </tr>
         </tbody>
       </table>
+      <%= link_to "グループ一覧に戻る", groups_path, class: "btn btn-sm btn-secondary" %>
     </div>
     <div class = 'col-8'>
       <h4><%= @group.name %>のトークルーム</h4>
