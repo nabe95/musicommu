@@ -35,7 +35,9 @@ Rails.application.routes.draw do
         patch 'withdraw'
         get :bands
         get :groups
+        get :follows, :followers
       end
+      resource :relationships, only: [:create, :destroy]
     end
     
     #投稿機能

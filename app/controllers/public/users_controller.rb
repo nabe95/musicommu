@@ -10,6 +10,8 @@ class Public::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.order(created_at: :desc).page(params[:page]).per(10)
+    @following_users = @user.following_users
+    @follower_users = @user.follower_users
   end
 
   def edit
@@ -54,6 +56,18 @@ class Public::UsersController < ApplicationController
     reset_session
     flash[:notice] = "退会処理を行いました。"
     redirect_to root_path
+  end
+  
+  #フォロー一覧
+  def follows
+    user = User.find(params[:id])
+    @users = user.following_users.page(params[:page]).per(10)
+  end
+  
+  #フォロワー一覧
+  def followers
+    user = User.find(params[:id])
+    @users = user.follower_users.page(params[:page]).per(10)
   end
 
   private

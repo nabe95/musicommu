@@ -9,35 +9,8 @@
         <%= link_to "グループ一覧", groups_path, class: "btn btn-sm btn-secondary" %>
       </div>
       
-      <table class='table'>
-          <tr>
-            <th></th>
-            <th>名前</th>
-            <th>自己紹介</th>
-            <th>年齢</th>
-            <th>住所</th>
-            <th>好きなジャンル</th>
-            <th>好きなアーティスト</th>
-          </tr>
-          <% @users.each do |user| %>
-            <tr>
-              <td><%= image_tag user.get_profile_image, size: '50x50' %></td>
-              <td>
-                <%= link_to user do %>
-                <%= user.name %>
-                <% end %>
-              </td>
-              <td><%= user.introduction %></td>
-              <td><%= user.age %></td>
-              <td><%= user.prefecture %></td>
-              <td><%= user.genre %></td>
-              <td><%= user.artist %></td>
-            </tr>
-          <% end %>
-      </table>
-        <div class ="d-flex justify-content-center">
-          <%= paginate @users %>
-        </div>
+      <%= render "index", users: @users %>
+
     </div>
-    </div>
+  </div>
 </div>
