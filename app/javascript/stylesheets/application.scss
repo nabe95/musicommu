@@ -64,3 +64,61 @@ h3 {
   height: 100%;
   object-fit: cover;
 }
+
+// スライドショー
+.slider {
+  width: 700px;
+  height: 400px;
+  display: flex;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.slider > :first-child {
+  -webkit-animation-name: scroll;
+  animation-name: scroll;
+  -webkit-animation-duration: 20s;
+  animation-duration: 20s;
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+@keyframes scroll {
+0% {
+  margin-left: 0;
+}
+
+20% {
+  margin-left: -100%;
+}
+
+25% {
+  margin-left: -100%;
+}
+
+45% {
+  margin-left: -200%;
+}
+
+50% {
+  margin-left: -200%;
+}
+
+70% {
+  margin-left: -300%;
+}
+
+75% {
+  margin-left: -300%;
+}
+
+95% {
+  margin-left: -400%;
+}
+
+100% {
+  margin-left: -400%;
+}
+}

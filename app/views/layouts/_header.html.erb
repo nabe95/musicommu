@@ -46,13 +46,13 @@
         </li>
         <% elsif admin_signed_in? %>
         <li class="nav-item">
+          <%= link_to "ユーザー",admin_path, class: 'nav-link text-white' %>
+        </li>
+        <li class="nav-item">
           <%= link_to "募集コメント", admin_band_comments_path, class: 'nav-link text-white' %>
         </li>
         <li class="nav-item">
           <%= link_to "投稿コメント", admin_post_comments_path, class: 'nav-link text-white' %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "ユーザー", admin_users_path, class: 'nav-link text-white' %>
         </li>
         <li class="nav-item">
           <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link text-white' %>
@@ -62,6 +62,7 @@
           <%= link_to about_path, class: 'nav-link text-white' do %>
             About <i class="fas fa-drum"></i>
           <% end %>
+        </li>
         <li class="nav-item">
           <%= link_to new_user_registration_path, class: 'nav-link text-white' do %>
             新規登録<i class="fas fa-user-plus"></i>
