@@ -55,6 +55,7 @@ class Public::PostsController < ApplicationController
     redirect_to posts_path
   end
 
+  # タグ検索
   def search_tag
     @tag_list = Tag.all
     #検索されたタグの受け取り
@@ -63,6 +64,11 @@ class Public::PostsController < ApplicationController
     @posts = @tag.posts
   end
 
+# タグ一覧
+  def tags
+  @tag_list = Tag.all
+  end
+  
   private
 
   def post_params

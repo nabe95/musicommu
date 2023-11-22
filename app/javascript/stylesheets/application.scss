@@ -31,6 +31,11 @@ th {
   color: white;
 }
 
+h3 {
+  font-family: "MS Gothic", sans-serif;
+  color: #053C5E;
+}
+
 /* Kaminariのページネーションのスタイル */
 .pagination {
   background-color: #215d73; /* ページネーションの背景色を設定 */
@@ -47,4 +52,15 @@ th {
   background-color: #215d73; /* 背景色を設定 */
   border-color: #215d73; /* ボーダー色を設定 */
   color: #ffffff; /* テキスト色を設定 */
+}
+
+// 画像をサイズに合わせる
+.img-container {
+  width: 360px;
+  height: 240px;
+}
+.img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

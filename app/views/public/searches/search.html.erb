@@ -1,13 +1,15 @@
 <div class="container">
-  <div class="row mt-2 mb-2">
+  <div class="row justify-content-center my-2">
     <div class="col">
-    <h4>検索結果</h4>
-      全<%= @records.count %>件
-      <% if @records.empty? %>
-        <p style="color:red;">該当する投稿はありません</p></div>
-      <% else %>
-        <%= render 'public/posts/index', posts: @records %>
-      <% end %>
+      <div class="text-center">
+        <h3>検索結果</h3>
+      </div>
+        <h4>全<%= @records.count %>件</h4>
+        <% if @records.empty? %>
+          <h6 style="color:red;">該当する投稿はありません</h6>
+        <% else %>
+          <%= render 'public/posts/index', posts: @records %>
+        <% end %>
       
     </div>
   </div>

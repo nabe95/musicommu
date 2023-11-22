@@ -42,6 +42,9 @@ Rails.application.routes.draw do
     resources :posts, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
       resources :post_comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
+      #タグ一覧
+      #showアクションが呼び出されてしまうためon: :collectionによりidに基づかない
+      get :tags, on: :collection
     end
     
     #グループ機能
