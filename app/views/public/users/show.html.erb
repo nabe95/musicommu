@@ -8,11 +8,6 @@
       <!--会員が有効か退会かで表示-->
       <% if @user.is_active? %>
       <div class ="col-md-9">
-        <!--<div class="d-flex justify-content-start mb-3">-->
-        <!--  <%= link_to "　募集一覧　", bands_user_path(@user), class: "btn btn-sm btn-outline-primary mr-2" %>-->
-        <!--  <%= link_to "　参加グループ　", groups_user_path(@user), class: "btn btn-sm btn-outline-info mr-2" %>-->
-        <!--  <%= link_to "　いいね一覧　", favorites_user_path(@user), class: "btn btn-sm btn-outline-danger" %>-->
-        <!--</div>-->
         <%= render 'public/posts/index', posts: @posts %>
         <div class ="d-flex justify-content-center">
         <%= paginate @posts %>

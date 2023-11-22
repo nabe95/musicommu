@@ -6,7 +6,7 @@ class Public::MessagesController < ApplicationController
       @message = Message.create(params.require(:message).permit(:message,:user_id, :content, :group_id).merge(:user_id => current_user.id))
       redirect_to "/groups/#{@message.group_id}"
     else
-      redirect_back(fallback_location: root_path)
+      redirect_back(fallback_location: root_path, notice: "メッセージを送るにはグループに参加してください")
     end
   end
 end

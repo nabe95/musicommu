@@ -59,6 +59,10 @@
         </li>
         <% else %>
         <li class="nav-item">
+          <%= link_to about_path, class: 'nav-link text-white' do %>
+            About <i class="fas fa-drum"></i>
+          <% end %>
+        <li class="nav-item">
           <%= link_to new_user_registration_path, class: 'nav-link text-white' do %>
             新規登録<i class="fas fa-user-plus"></i>
           <% end %>
