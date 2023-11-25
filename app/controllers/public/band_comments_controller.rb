@@ -3,8 +3,11 @@ class Public::BandCommentsController < ApplicationController
     @band_post = BandPost.find(params[:band_post_id])
     @comment = current_user.band_comments.new(band_comment_params)
     @comment.band_post_id = @band_post.id
-    @comment.save
-
+    if @comment.save
+    else
+      flash[:notice] = "コメントを入力してください。"
+      redirect_back fallback_location: @band_post
+    end
   end
   
   def destroy

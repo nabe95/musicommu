@@ -12,11 +12,13 @@
     <% groups.each do |group| %>
     <tr>
       <td>
+        <span class="profile-image-container">
         <% if group.group_image.attached? %>
           <%= image_tag group.group_image,size:"50x50" %>
         <% else %>
           <%= image_tag 'no_image',size:"50x50" %>
         <% end %>
+        </span>
       </td>
       <td><%= link_to group.name,group_path(group) %></td>
       <td><%= group.group_users.count %></td>

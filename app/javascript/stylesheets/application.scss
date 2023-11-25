@@ -65,6 +65,33 @@ h3 {
   object-fit: cover;
 }
 
+// マイページプロフィールを合わせる
+.profile-image, .group-image {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+}
+
+.profile-image img, .group-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+// アイコン50x50
+.profile-image-container {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+}
+
+.profile-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 // スライドショー
 .slider {
   width: 700px;

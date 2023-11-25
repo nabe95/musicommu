@@ -9,7 +9,7 @@ class Public::BandPostsController < ApplicationController
     @band_post = BandPost.new(band_post_params)
     @band_post.user_id = current_user.id
     if @band_post.save
-      redirect_to band_posts_path, notice:"投稿しました"
+      redirect_to band_post_path(@band_post), notice:"投稿しました"
     else
       render "new"
     end

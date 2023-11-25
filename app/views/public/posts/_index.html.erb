@@ -18,10 +18,13 @@
       </td>
       <td><%= render "public/post_comments/counter", post: post %></td>
       <td>
-        <% if params[:action] == 'index' || params[:action] == 'search_tag' %>
-          <%= link_to(post.user) do %>
-            <%= image_tag post.user.get_profile_image, size:'50x50' %>
-            <%= post.user.name %></td>
+        <!--投稿一覧、タグ検索結果、キーワード検索結果-->
+        <% if params[:action] == 'index' || params[:action] == 'search_tag' || params[:action] == 'search' %>
+          <%= link_to(post.user, class: 'd-flex align-items-center') do %>
+            <span class="profile-image-container">
+              <%= image_tag post.user.get_profile_image, class: 'profile-image' %>
+            </span>
+            <%= post.user.name %>
           <% end %>
         <% end %>
       </td>

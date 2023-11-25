@@ -9,7 +9,7 @@ class Public::PostsController < ApplicationController
     tag_list = params[:post][:name].split(',')
     if @post.save
     @post.save_tags(tag_list)
-    redirect_to posts_path, notice:"投稿しました"
+    redirect_to post_path(@post), notice:"投稿しました"
     else
       render "new"
     end
@@ -19,7 +19,7 @@ class Public::PostsController < ApplicationController
     #退会したユーザーのを表示させない
     @posts = Post.joins(:user).where(users: { is_active: true })
                   .order(created_at: :desc) #新規投稿順
-                  .page(params[:page]).per(10) #ページネーション
+                  .page(params[:page]).per(8) #ページネーション
     @user = current_user
     @tag_list = Tag.all
   end
@@ -61,20 +61,21 @@ class Public::PostsController < ApplicationController
     #検索されたタグの受け取り
     @tag = Tag.find(params[:tag_id])
     #検索されたタグのついた投稿を表示
-    @posts = @tag.posts
+    @posts = @tag.posts.order(created_at: :desc)
+                      .page(params[:page]).per(8)
   end
 
 # タグ一覧
   def tags
   @tag_list = Tag.all
   end
-  
+
   private
 
   def post_params
     params.require(:post).permit(:title, :body, :image, tags: [:name])
   end
-  
+
   #他のユーザーがアクセスできないようにする
   def is_matching_login_user
     post = Post.find(params[:id])
@@ -82,5 +83,5 @@ class Public::PostsController < ApplicationController
       redirect_to posts_path
     end
   end
-  
+
 end

@@ -3,7 +3,11 @@ class Public::PostCommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = current_user.post_comments.new(post_comment_params)
     @comment.post_id = @post.id
-    @comment.save
+    if @comment.save
+    else
+      flash[:notice] = "コメントを入力してください。"
+    redirect_back fallback_location: @post
+    end
   end
   
   def destroy

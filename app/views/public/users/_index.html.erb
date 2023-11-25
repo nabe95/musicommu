@@ -10,7 +10,9 @@
   </tr>
   <% users.each do |user| %>
   <tr>
-    <td><%= image_tag user.get_profile_image, size: '50x50' %></td>
+    <td>
+      <span class="profile-image-container"><%= image_tag user.get_profile_image, size: '50x50' %></span>
+    </td>
     <td>
       <%= link_to user do %>
       <%= user.name %>

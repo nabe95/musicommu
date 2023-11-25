@@ -10,7 +10,9 @@
         <% else %>
           <%= render 'public/posts/index', posts: @records %>
         <% end %>
-      
+      <div class ="d-flex justify-content-center">
+        <%= paginate @records %>
+      </div>
     </div>
   </div>
 </div>

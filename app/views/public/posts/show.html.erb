@@ -22,7 +22,11 @@
           <tr>
             <td><%= @post.created_at.strftime("%Y/%m/%d %H:%M")%></td>
             <td></td>
-            <td><%= @post.user.name %></td>
+            <td>
+              <%= link_to(@post.user) do %>
+              <%= @post.user.name %>
+              <% end %>
+            </td>
           </tr>
           <tr>
             <td></td>

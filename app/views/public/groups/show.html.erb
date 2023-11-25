@@ -5,9 +5,9 @@
           <tr>
             <td colspan="2">
               <% if @group.group_image.attached? %>
-                <%= image_tag @group.group_image,size:"50x50" %>
+                <%= image_tag @group.group_image, size: "100x100", class: 'group-image' %>
               <% else %>
-                <%= image_tag 'no_image',size:"50x50" %>
+                <%= image_tag 'no_image', size: "100x100", class: 'group-image' %>
               <% end %>
             </td>
           </tr>

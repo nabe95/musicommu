@@ -4,7 +4,9 @@ class Public::UsersController < ApplicationController
 
   def index
     #退会したユーザーは表示させない
-    @users = User.where(is_active: true).page(params[:page]).per(10)
+    @users = User.where(is_active: true)
+                  .page(params[:page]).per(8)
+                  .order(created_at: :desc)
   end
 
   def show
