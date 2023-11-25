@@ -41,8 +41,8 @@ class Public::UsersController < ApplicationController
   #ユーザーが投稿したバンド募集一覧
   def bands
     @user = User.find(params[:id])
-    @band_posts = current_user.band_posts.order(created_at: :desc)
-                                          .page(params[:page]).per(6)
+    @band_posts = @user.band_posts.order(created_at: :desc)
+                                  .page(params[:page]).per(6)
   end
   
   #ユーザーが参加しているグループ

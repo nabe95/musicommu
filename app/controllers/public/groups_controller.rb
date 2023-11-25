@@ -4,7 +4,7 @@ class Public::GroupsController < ApplicationController
   before_action :authorize_group_member, only: [:show]
 
   def index
-    @groups = Group.all.order(created_at: :desc)
+    @groups = Group.all.order(created_at: :desc).page(params[:page]).per(8)
     @user = User.find(current_user.id)
   end
 

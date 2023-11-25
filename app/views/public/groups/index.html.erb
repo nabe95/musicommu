@@ -8,6 +8,9 @@
       </div>
       </div>
       <%= render 'index', groups: @groups %>
+      <div class ="d-flex justify-content-center">
+        <%= paginate @groups %>
+    </div>
     </div>
   </div>
 </div>
