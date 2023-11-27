@@ -32,8 +32,10 @@
 - IDE：Cloud9
 ​
 ## 使用素材
-- 検討中　後ほど記載
-- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
-- アプリケーションの実装に使用したgem/bootstrapのリファレンスなどの記載は不要です。
-- 使用しない場合は、使用素材の項目をREADMEから削除してください。
-折りたたむ
+top画像
+  - frestocks: [https://frestocks.com](https://frestocks.com/download/wpdmpro-4394)
+  - photoAC:[https://www.photo-ac.com](https://www.photo-ac.com/main/detail/5059537&title=%E9%8D%B5%E7%9B%A4+%2F+%E6%9C%A8%E7%9B%AE%E3%83%94%E3%82%A2%E3%83%8E#goog_rewarded)
+  - パブリックドメインQ: [https://publicdomainq.net](https://publicdomainq.net/music-concert-0026615/)
+
+  投稿イメージ画像
+  - ECデザイン: [http://design-ec.com](http://design-ec.com/?p=55)
