@@ -43,6 +43,7 @@ class Public::UsersController < ApplicationController
     @user = User.find(params[:id])
     @band_posts = @user.band_posts.order(created_at: :desc)
                                   .page(params[:page]).per(6)
+                                  .where(status: :public)
   end
   
   #ユーザーが参加しているグループ

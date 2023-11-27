@@ -16,11 +16,11 @@
             <tr>
               <td><%= user.id %></td>
               <td>
-                <span class="profile-image-container">
-                  <%= image_tag user.get_profile_image, size: '50x50' %>
-                </span>
-                <%= link_to admin_user_path(user) do %>
-                <%= user.name %>
+                <%= link_to admin_user_path(user), class: 'd-flex align-items-center' do %>
+                  <span class="profile-image-container">
+                    <%= image_tag user.get_profile_image, class: 'profile-image' %>
+                  </span>
+                  <%= user.name %>
                 <% end %>
               </td>
               <td><%= user.email %></td>
