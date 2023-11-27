@@ -1,9 +1,10 @@
 class Public::GroupsController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_correct_user, only: [:edit, :update]
+  before_action :authorize_group_member, only: [:show]
 
   def index
-    @groups = Group.all
+    @groups = Group.all.order(created_at: :desc).page(params[:page]).per(8)
     @user = User.find(current_user.id)
   end
 
@@ -52,6 +53,14 @@ private
     @group = Group.find(params[:id])
     unless @group.owner_id == current_user.id
       redirect_to groups_path
+    end
+  end
+  
+  #グループメンバーか確認
+  def authorize_group_member
+    @group = Group.find(params[:id])
+    unless current_user && @group.users.include?(current_user)
+      redirect_to request.referer, notice:"メンバー以外はアクセスできません。グループに参加してください。"
     end
   end
 end

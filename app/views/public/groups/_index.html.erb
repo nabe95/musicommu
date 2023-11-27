@@ -12,18 +12,26 @@
     <% groups.each do |group| %>
     <tr>
       <td>
+        <span class="profile-image-container">
         <% if group.group_image.attached? %>
           <%= image_tag group.group_image,size:"50x50" %>
         <% else %>
           <%= image_tag 'no_image',size:"50x50" %>
         <% end %>
+        </span>
       </td>
       <td><%= link_to group.name,group_path(group) %></td>
       <td><%= group.group_users.count %></td>
       <td><%= group.introduction %></td>
-      <% if group.is_owned_by?(current_user) %>
-      <td><%= link_to '編集', edit_group_path(group), class: "group_#{group.id} btn btn-sm btn-success" %></td>
-      <% end %>
+      <td style="text-align: center;">
+    <% if group.owner_id == current_user.id %>
+      <td><%= link_to '　編集　', edit_group_path(group), class: "btn btn-sm btn-secondary" %></td>
+    <% elsif group.includesUser?(current_user)%>
+      <td><%= link_to '　退出する　', group_group_users_path(group), method: :delete, class: "btn btn-sm btn-danger" %></td>
+    <% else %>
+　　  <td><%= link_to '　参加する　', group_group_users_path(group), method: :post, class: "btn btn-sm btn-success" %></td>
+    <% end %>
+      </td>
     </tr>
     <% end %>
   </tbody>

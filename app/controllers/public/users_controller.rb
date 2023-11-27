@@ -4,19 +4,25 @@ class Public::UsersController < ApplicationController
 
   def index
     #退会したユーザーは表示させない
-    @users = User.where(is_active: true).page(params[:page]).per(10)
+    @users = User.where(is_active: true)
+                  .page(params[:page]).per(8)
+                  .order(created_at: :desc)
   end
 
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.order(created_at: :desc).page(params[:page]).per(10)
+    @following_users = @user.following_users
+    @follower_users = @user.follower_users
   end
 
   def edit
+    is_matching_login_user
     @user = User.find(params[:id])
   end
 
   def update
+    is_matching_login_user
     @user = User.find(params[:id])
     if @user.update(user_params)
       redirect_to user_path(@user), notice:"変更しました"
@@ -31,13 +37,39 @@ class Public::UsersController < ApplicationController
     favorites = Favorite.where(user_id: @user.id).pluck(:post_id)
     @favorite_posts = Post.find(favorites)
   end
+  
+  #ユーザーが投稿したバンド募集一覧
+  def bands
+    @user = User.find(params[:id])
+    @band_posts = @user.band_posts.order(created_at: :desc)
+                                  .page(params[:page]).per(6)
+  end
+  
+  #ユーザーが参加しているグループ
+  def groups
+    @user = User.find(params[:id])
+    @groups = @user.group_users.map(&:group)
+  end
 
+  # 論理的削除、退会処理
   def withdraw
     @user = User.find(current_user.id)
     @user.update(is_active: false)
     reset_session
     flash[:notice] = "退会処理を行いました。"
     redirect_to root_path
+  end
+  
+  #フォロー一覧
+  def follows
+    user = User.find(params[:id])
+    @users = user.following_users.page(params[:page]).per(10)
+  end
+  
+  #フォロワー一覧
+  def followers
+    user = User.find(params[:id])
+    @users = user.follower_users.page(params[:page]).per(10)
   end
 
   private
@@ -50,6 +82,14 @@ class Public::UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.email == "guest@example.com"
       redirect_to user_path(current_user) , notice: "ゲストユーザーはプロフィール編集画面へ遷移できません。"
+    end
+  end
+  
+  #他のユーザーがアクセスできないようにする
+  def is_matching_login_user
+    user = User.find(params[:id])
+    unless user.id == current_user.id
+      redirect_to user_path(current_user)
     end
   end
 

@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
     
+    get 'about' => 'homes#about'
+    
     #キーワード検索
     get "search", to: "searches#search"
     
@@ -33,13 +35,20 @@ Rails.application.routes.draw do
         get :favorites
         get :check
         patch 'withdraw'
+        get :bands
+        get :groups
+        get :follows, :followers
       end
+      resource :relationships, only: [:create, :destroy]
     end
     
     #投稿機能
     resources :posts, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
       resources :post_comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
+      #タグ一覧
+      #showアクションが呼び出されてしまうためon: :collectionによりidに基づかない
+      get :tags, on: :collection
     end
     
     #グループ機能
@@ -55,7 +64,7 @@ Rails.application.routes.draw do
   #管理者ルーティング
   namespace :admin do
     get '/' => 'homes#top'
-    resources :users, only: [:index, :show, :edit, :update]
+    resources :users, only: [:show, :edit, :update]
     resources :post_comments, only: [:index, :destroy]
     resources :band_comments, only: [:index, :destroy]
   end

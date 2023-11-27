@@ -1,28 +1,33 @@
 <div class="container">
-  <div class="row justify-content-center mt-2 mb-2">
-    <div class="col">
-      <h2>ログイン</h2>
-
+  <div class="row justify-content-center my-2 ">
+    <div class ="col-md-6">
+      
+      <div class="text-center my-2">
+        <h3>ログイン</h3>
+      </div>
+      
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <table>
+        <table class="table table-borderless">
           <tr>
-            <th>メールアドレス</th>
-            <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+            <td>メールアドレス</td>
+            <td><%= f.email_field :email, autofocus: true, autocomplete: "email", style: "width: 300px;" %></td>
           </tr>
           <tr>
-          <th>パスワード</th>
-          <td><%= f.password_field :password, autocomplete: "current-password" %></td>
+            <td>パスワード</td>
+            <td><%= f.password_field :password, autocomplete: "current-password", style: "width: 300px;" %></td>
           </tr>
           <tr>
             <td></td>
-            <td><%= f.submit "　ログイン　", class:"btn btn-primary" %></td>
+            <td><%= f.submit "　ログイン　", class:"btn btn-sm btn-primary" %></td>
           </tr>
         </table>
       <% end %>
 
-      <h3>会員登録がお済みでない方</h3>
-        <%= link_to 'こちら', new_user_registration_path,class: "ml-5" %>から新規登録を行なってください。
-
+      <div class="text-center my-2">
+        <h3>会員登録がお済みでない方</h3>
+          <%= link_to 'こちら', new_user_registration_path,class: "ml-5" %>から新規登録を行なってください。
+      </div>
+      
     </div>
   </div>
 </div>

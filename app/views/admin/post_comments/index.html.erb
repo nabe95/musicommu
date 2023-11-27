@@ -1,9 +1,9 @@
 <div class="container">
-  <div class="row">
+  <div class="row my-2">
     <div class="col">
-      
-      <h4>投稿へのコメント一覧</h4>
-      
+      <div class="text-center">
+        <h3>投稿へのコメント一覧</h3>
+      </div>
       <table class='table table-hover table-inverse'>
         <tr>
           <th></th>
@@ -20,7 +20,9 @@
             <%= link_to '削除', admin_post_comment_path(post_comment), method: :delete, class: "btn btn-sm btn-danger", "data-confirm" => "本当に消しますか？" %>
           </td>
           <td>
-            <%= image_tag @users.find(post_comment.user_id).get_profile_image, size: '50x50' %>
+            <span class="profile-image-container">
+              <%= image_tag @users.find(post_comment.user_id).get_profile_image, size: '50x50' %>
+            </span>
             <%= link_to admin_user_path(@users.find(post_comment.user_id)) do %>
             <%= @users.find(post_comment.user_id).name %>
             <% end %>
@@ -30,7 +32,10 @@
         <% end %>
       </table>
 
-      
+      <div class ="d-flex justify-content-center">
+        <%= paginate @post_comments %>
+      </div>
+
     </div>
   </div>
 </div>

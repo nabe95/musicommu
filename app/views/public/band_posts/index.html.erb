@@ -1,34 +1,19 @@
 <div class="container">
   <div class="row justify-content-center mt-2 mb-2">
     <div class="col">
-      <h4>募集一覧</h4>
-      <%= link_to "　新規募集する　", new_band_post_path, class:"btn btn-primary" %>
-
-      <div class="row">
-        <% @band_posts.each do |band_post| %>
-          <div class="col-md-4 mb-3">
-            <div class="card border-dark" style="max-width: 20rem;">
-              <%= link_to band_post, class: "card-body text-dark" do %>
-                <p><%= band_post.created_at.strftime("%Y/%m/%d %H:%M")%>
-                  <!--公開ステータスは投稿したユーザーのみ表示-->
-                  <% if band_post.user == current_user %>
-                  <%= band_post.status_label %>
-                  <% end %>
-                </p>
-                <h5 class="card-title"><%= band_post.title %></h5>
-                <p class="card-text">ジャンル: <%= band_post.genre %><br>
-                  募集パート: <%= band_post.instrument %><br>
-                  活動地域: <%= band_post.area %><br>
-                  方向性: <%= band_post.direction_i18n %>
-                </p>
-              <% end %>
-            </div>
-          </div>
-        <% end %>
+      
+      <div class="text-center">
+        <h3>メンバー募集</h3>
       </div>
-        <div class ="d-flex justify-content-center">
-          <%= paginate @band_posts %>
-        </div>
+      <div class="text-right mb-3">
+        <%= link_to "　新規募集する　", new_band_post_path, class:"btn btn-sm btn-primary" %>
+      </div>
+      
+      <!--バンド募集した一覧-->
+      <%= render 'public/band_posts/index', band_posts: @band_posts %>
+      <div class ="d-flex justify-content-center">
+        <%= paginate @band_posts %>
+      </div>
     </div>
   </div>
 </div>

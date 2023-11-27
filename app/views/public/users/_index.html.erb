@@ -1,0 +1,32 @@
+<table class='table'>
+  <tr>
+    <th></th>
+    <th>名前</th>
+    <th>自己紹介</th>
+    <th>好きなジャンル</th>
+    <th>フォロー</th>
+    <th>フォロワー</th>
+    <th></th>
+  </tr>
+  <% users.each do |user| %>
+  <tr>
+    <td>
+      <span class="profile-image-container"><%= image_tag user.get_profile_image, size: '50x50' %></span>
+    </td>
+    <td>
+      <%= link_to user do %>
+      <%= user.name %>
+      <% end %>
+    </td>
+    <td><%= user.introduction %></td>
+    <td><%= user.genre %></td>
+    <td><%= user.followers.count %></td>
+    <td><%= user.followeds.count %></td>
+    <td><%= render partial: "public/relationships/btn", locals: { user: user } %></td>
+  </tr>
+  <% end %>
+</table>
+
+<div class ="d-flex justify-content-center">
+  <%= paginate users %>
+</div>

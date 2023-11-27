@@ -9,7 +9,7 @@ class Public::BandPostsController < ApplicationController
     @band_post = BandPost.new(band_post_params)
     @band_post.user_id = current_user.id
     if @band_post.save
-      redirect_to band_posts_path, notice:"投稿しました"
+      redirect_to band_post_path(@band_post), notice:"投稿しました"
     else
       render "new"
     end
@@ -39,10 +39,12 @@ class Public::BandPostsController < ApplicationController
   end
 
   def edit
+    is_matching_login_user
     @band_post = BandPost.find(params[:id])
   end
 
   def update
+    is_matching_login_user
     @band_post = BandPost.find(params[:id])
     if @band_post.update(band_post_params)
       redirect_to band_post_path(@band_post.id), notice:"投稿しました"
@@ -66,6 +68,14 @@ class Public::BandPostsController < ApplicationController
 
   def set_post
       @band_post = BandPost.find(params[:id])
+  end
+  
+  #他のユーザーがアクセスできないようにする
+  def is_matching_login_user
+    band_post = BandPost.find(params[:id])
+    unless band_post.user_id == current_user.id
+      redirect_to band_posts_path
+    end
   end
 
 end

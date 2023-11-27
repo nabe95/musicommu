@@ -1,20 +1,22 @@
 <%= form_with model: group, local: true do |f| %>
-  <div class ="form-group">
-    <%= f.label :グループ名 %>
-    <%= f.text_field :name, class: 'form-control' %>
-  </div>
-  
-  <div class ="form-group">
-    <%= f.label :紹介文 %>
-    <%= f.text_field :introduction, class: 'form-control' %>
-  </div>
-  
-  <div class ="form-group">
-    <%= f.label :グループ画像 %>
-    <%= f.file_field :group_image, class: "form-control-file" , accept: "image/*" %>
-  </div>
-  
-  <div class ="form-group">
-    <%= f.submit class: 'btn btn-info' %>
-  </div>
+  <table class="table table-borderless">
+    <tr>
+      <td>グループ名</td>
+      <td><%= f.text_field :name, class: 'form-control' %></td>
+    </tr>
+    <tr>
+      <td>紹介文</td>
+      <td><%= f.text_field :introduction, class: 'form-control' %></td>
+    </tr>
+    <td>グループ画像</td>
+    <td><%= f.file_field :group_image, class: "form-control-file" , accept: "image/*" %></td>
+    <tr>
+      <td></td>
+      <td><% if group.new_record? %>
+        <%= f.submit '　 グループを作成 　',class:"btn btn-sm btn-primary" %>
+      <% else %>
+        <%= f.submit '　変更を保存　',class:"btn btn-sm btn-success" %>
+      <% end %></td>
+    </tr>
+  </table>
 <% end %>

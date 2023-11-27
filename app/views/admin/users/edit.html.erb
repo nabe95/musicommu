@@ -1,38 +1,39 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-6">
-      
-      <h4><%= @user.name %>さんの会員情報編集</h4>
-            <%= form_with model: @user, url: admin_user_path(@user.id), method: :patch do |f| %>
+  <div class="row justify-content-center my-2 ">
+    <div class ="col-md-6">
+      <div class="text-center my-2">
+        <h3><%= @user.name %>さんの会員情報編集</h3>
+      </div>
+      <%= form_with model: @user, url: admin_user_path(@user.id), method: :patch do |f| %>
         <%= render "public/shared/error_messages", resource: @user %>
-        <table>
+        <table class="table table-borderless">
           <tr>
-            <th>プロフィール画像</th>
+            <td>プロフィール画像</td>
             <td><%= f.file_field :profile_image, accept: "image/*" %></td>
           </tr>
           <tr>
-            <th>名前(ニックネーム)</th>
-            <td><%= f.text_field :name %></td>
+            <td>名前(ニックネーム)</td>
+            <td><%= f.text_field :name, style: "width: 300px;" %></td>
           </tr>
           <tr>
-            <th>自己紹介</th>
-            <td><%= f.text_field :introduction %></td>
+            <td>自己紹介</td>
+            <td><%= f.text_field :introduction, style: "width: 300px;" %></td>
           </tr>
           <tr>
-            <th>年齢</th>
-            <td><%= f.text_field :age %></td>
+            <td>年齢</td>
+            <td><%= f.text_field :age, style: "width: 300px;" %></td>
           </tr>
           <tr>
-            <th>都道府県</th>
-            <td><%= f.text_field :prefecture %></td>
+            <td>都道府県</td>
+            <td><%= f.text_field :prefecture, style: "width: 300px;" %></td>
           </tr>
           <tr>
-            <th>好きなジャンル</th>
-            <td><%= f.text_field :genre %></td>
+            <td>好きなジャンル</td>
+            <td><%= f.text_field :genre, style: "width: 300px;" %></td>
           </tr>
           <tr>
-            <th>好きなアーティスト</th>
-            <td><%= f.text_field :artist %></td>
+            <td>好きなアーティスト</td>
+            <td><%= f.text_field :artist, style: "width: 300px;" %></td>
           </tr>
           <tr>
             <td>会員ステータス</td>

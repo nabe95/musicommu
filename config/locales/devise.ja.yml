@@ -6,6 +6,9 @@ ja:
         age: 年齢
         prefecture: 都道府県
         image: 画像
+        introduction: 自己紹介
+        genre: ジャンル
+        artist: アーティスト
         confirmation_sent_at: パスワード確認送信時刻
         confirmation_token: パスワード確認用トークン
         confirmed_at: パスワード確認時刻

@@ -3,6 +3,8 @@ class Public::SearchesController < ApplicationController
   def search
     @content = params[:content]
     @records = @records = Post.search_for(@content, params[:method])
+                              .order(created_at: :desc)
+                              .page(params[:page]).per(8)
   end
 
 end

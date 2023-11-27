@@ -1,0 +1,10 @@
+<div class = 'container'>
+  <div class = 'row'>
+    <div class = 'col'>
+      <div class="text-center mt-2">
+      <h4><%= @user.name %>さんが参加しているグループ</h4>
+      </div>
+      <%= render 'public/groups/index', groups: @groups %>
+    </div>
+  </div>
+</div>

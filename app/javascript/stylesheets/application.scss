@@ -1,8 +1,151 @@
 @use '~bootstrap/scss/bootstrap';
+
+html {
+  height: 100%;
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: sans-serif;
+  font-size: 15px;
+  background-color: #f4f9ff;
+}
+
 header {
-  background-color: #17184b;
+  width: 100%;
+  background-color: #053C5E;
 }
 
 footer {
-  background-color: #17184b;
+  position: sticky;
+  top: 100vh;
+  width: 100%;
+  background-color: #053C5E;
+}
+
+th {
+  background-color: #3994ac;
+  color: white;
+}
+
+h3 {
+  font-family: "MS Gothic", sans-serif;
+  color: #053C5E;
+}
+
+/* Kaminariのページネーションのスタイル */
+.pagination {
+  background-color: #215d73; /* ページネーションの背景色を設定 */
+  border-radius: 4px; /* 角丸の半径を設定 */
+}
+
+/* オプション: ページネーションリンクの色を変更 */
+.pagination a {
+  color: #215d73; /* テキスト色を設定 */
+}
+
+/* オプション: アクティブなページの色を変更 */
+.pagination .page-item.active a {
+  background-color: #215d73; /* 背景色を設定 */
+  border-color: #215d73; /* ボーダー色を設定 */
+  color: #ffffff; /* テキスト色を設定 */
+}
+
+// 画像をサイズに合わせる
+.img-container {
+  width: 360px;
+  height: 240px;
+}
+.img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+// マイページプロフィールを合わせる
+.profile-image, .group-image {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+}
+
+.profile-image img, .group-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+// アイコン50x50
+.profile-image-container {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+}
+
+.profile-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+// スライドショー
+.slider {
+  width: 700px;
+  height: 400px;
+  display: flex;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.slider > :first-child {
+  -webkit-animation-name: scroll;
+  animation-name: scroll;
+  -webkit-animation-duration: 20s;
+  animation-duration: 20s;
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+@keyframes scroll {
+0% {
+  margin-left: 0;
+}
+
+20% {
+  margin-left: -100%;
+}
+
+25% {
+  margin-left: -100%;
+}
+
+45% {
+  margin-left: -200%;
+}
+
+50% {
+  margin-left: -200%;
+}
+
+70% {
+  margin-left: -300%;
+}
+
+75% {
+  margin-left: -300%;
+}
+
+95% {
+  margin-left: -400%;
+}
+
+100% {
+  margin-left: -400%;
+}
 }

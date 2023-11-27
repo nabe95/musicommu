@@ -33,6 +33,7 @@ ja:
     models:
       post: "投稿"
       band_post: "バンド募集"
+      group: "グループ"
     attributes:
       post:
         title: "タイトル"
@@ -43,6 +44,9 @@ ja:
         genre: "ジャンル"
         area: "活動地域"
         instrument: "募集パート"
+      group:
+        name: "グループ名"
+        introduction: "紹介文"
 
   date:
     abbr_day_names:

@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row justify-content-center mt-2 mb-2">
+    <div class="col">
+      <div class="text-center">
+        <h4><%= @user.name %>さんが募集した投稿</h4>
+      </div>
+  <%= render 'public/band_posts/index', band_posts: @band_posts %>
+    <div class="d-flex justify-content-center">
+      <%= paginate @band_posts %>
+    </div>
+  </div>
+</div>

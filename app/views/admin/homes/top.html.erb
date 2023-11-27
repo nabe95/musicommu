@@ -1,1 +1,42 @@
-トップページです。
+<div class="container">
+  <div class="row my-2">
+    <div class="col">
+      <div class="text-center">
+        <h3>ユーザー一覧</h3>
+      </div>
+      
+      <table class='table'>
+          <tr>
+            <th>ユーザーid</th>
+            <th>名前</th>
+            <th>メールアドレス</th>
+            <th>会員ステータス</th>
+          </tr>
+          <% @users.each do |user| %>
+            <tr>
+              <td><%= user.id %></td>
+              <td>
+                <span class="profile-image-container">
+                  <%= image_tag user.get_profile_image, size: '50x50' %>
+                </span>
+                <%= link_to admin_user_path(user) do %>
+                <%= user.name %>
+                <% end %>
+              </td>
+              <td><%= user.email %></td>
+              <% if user.is_active == true %>
+                <td class="text-success">有効</td>
+              <% else %>
+                <td class="text-danger">退会</td>
+              <% end %>
+            </tr>
+          <% end %>
+      </table>
+      
+      <div class ="d-flex justify-content-center">
+        <%= paginate @users %>
+      </div>
+      
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="row">
+  <% band_posts.each do |band_post| %>
+    <div class="col-md-4 mb-3">
+      <div class="card" style="max-width: 20rem; border: 1px solid #3994ac;">
+        <%= link_to band_post, class: "card-body text-dark" do %>
+          <p><%= band_post.created_at.strftime("%Y/%m/%d %H:%M")%>
+            <!--公開ステータスは投稿したユーザーのみ表示-->
+            <% if band_post.user == current_user %>
+              <%= band_post.status_label %>
+            <% end %>
+          </p>
+          <h5 class="card-title"><%= band_post.title %></h5>
+          <p class="card-text">ジャンル: <%= band_post.genre %><br>
+                                募集パート: <%= band_post.instrument %><br>
+                                活動地域: <%= band_post.area %><br>
+                                方向性: <%= band_post.direction_i18n %>
+          </p>
+          <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
