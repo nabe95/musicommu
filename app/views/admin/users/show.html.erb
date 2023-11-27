@@ -1,13 +1,15 @@
 <div class="container">
   <div class="row justify-content-center my-2 ">
-    <div class ="col-md-6">
+    <div class ="col-md-8">
       <div class="text-center my-2">
         <h3><%= @user.name %>さんの会員詳細</h3>
       </div>
       <table class='table'>
         <tr>
-          <td>プロフィール画像</td>
-          <td><%= image_tag @user.get_profile_image, size:'100x100' %></td>
+          <td class="col-4">プロフィール画像</td>
+          <td class="col-6 profile-image">
+            <%= image_tag @user.get_profile_image, class: 'profile-image', style: 'width: 100px; height: 100px; ' %>
+          </td>
         </tr>
         <tr>
           <td>名前</td>

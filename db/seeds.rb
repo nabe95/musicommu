@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
 #管理者の設定
 Admin.create!(email: "musicommu@admin.com", password: "musicommu")
 
@@ -20,6 +21,7 @@ def random_introduction(genre)
   introductions.sample
 end
 
+#ユーザー
 10.times do |n|
   selected_genre = ["ロック", "ポップ", "パンク", "ジャズ", "メタル"].sample
 
@@ -39,6 +41,13 @@ end
 
 end
 
+# タグ
+tags = ["ロック", "ポップ", "パンク", "ジャズ", "メタル"]
+
+tags.each do |tag_name|
+  Tag.find_or_create_by(name: tag_name)
+end
+
 10.times do |n|
   user = User.find_by(id: rand(1..10)) # ランダムにユーザーを取得
 
@@ -47,17 +56,20 @@ end
     title: "ライブ#{n + 1}",
     body: "楽しかった"
   )
-
-  # 画像を添付する例（適切なパスやファイル名に変更してください）
-  image_path = Rails.root.join("app/assets/images/post/#{user.id}.jpg")
-  post.image.attach(io: File.open(image_path), filename: "#{user.id}.jpg")
+  #タグづけ
+  tag_list = [tags.sample]
+  post.save_tags(tag_list)
+  #画像
+  image_path = Rails.root.join("app/assets/images/post/#{post.id}.jpg")
+  post.image.attach(io: File.open(image_path), filename: "#{post.id}.jpg")
 end
 
+#メンバー募集
 10.times do |n|
   user = User.find_by(id: rand(1..10))
   selected_genre = ["ロック", "ポップ", "パンク", "ジャズ", "メタル"].sample
   
-  band_post = BandPost.create!(
+  BandPost.create!(
     user: user,
     title: "#{selected_genre}バンドしませんか！#{n + 1}",
     body: "一緒にバンドをしましょう",
@@ -68,10 +80,10 @@ end
     direction: rand(0..2), # 音楽の方向性
     band_type: rand(0..2), # バンドのタイプ
     status: 0
-    )
+  )
 end
 
-#グループ
+#グループ作成
 ["ロック", "ポップ", "パンク", "ジャズ", "メタル"].each do |genre|
   1.times do |n|
     owner_user = User.find_by(id: rand(1..10))
@@ -83,4 +95,58 @@ end
     group.users << owner_user
     group.save!
   end
+end
+
+# いいね（Favorite）
+Post.all.each do |post|
+  user_ids = User.pluck(:id).sample(rand(1..4))
+
+  user_ids.each do |user_id|
+    Favorite.find_or_create_by!(user_id: user_id, post: post)
+  end
+end
+
+# 投稿のコメント（PostComment）
+comments = [
+  "素敵な投稿ですね！",
+  "感動しました！",
+  "かっこいいです！",
+  "楽しそうなライブでしたね。",
+  "また聴きたいです。",
+]
+
+10.times do
+  post_id = rand(1..10)
+  # 投稿をしたユーザー以外のユーザー
+  user_id = (User.pluck(:id) - [Post.find(post_id).user_id]).sample
+  comment = comments.sample
+
+  PostComment.create!(
+    user_id: user_id,
+    post_id: post_id,
+    comment: comment
+  )
+end
+
+# 募集のコメント（BandComment）
+10.times do
+  band_post_id = rand(1..10)
+  user_id = rand(1..10)
+
+  BandComment.create!(
+    user_id: user_id,
+    band_post_id: band_post_id,
+    comment: "参加したいです！"
+  )
+end
+
+# フォロー
+15.times do
+  follower = User.all.sample
+  followed = User.where.not(id: follower.id).sample
+
+  Relationship.find_or_create_by!(
+    follower_id: follower.id,
+    followed_id: followed.id
+  )
 end

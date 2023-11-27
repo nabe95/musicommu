@@ -2,7 +2,7 @@
   <div class="row my-2">
     <div class="col">
       <div class="text-center">
-        <h3>バンド募集へのコメント一覧</h3>
+        <h3>メンバー募集へのコメント一覧</h3>
       </div>
       <table class='table table-hover table-inverse'>
         <tr>
@@ -20,7 +20,9 @@
             <%= link_to '削除', admin_band_comment_path(band_comment), method: :delete, class: "btn btn-sm btn-danger", "data-confirm" => "本当に消しますか？" %>
           </td>
           <td>
-            <%= image_tag @users.find(band_comment.user_id).get_profile_image, size: '50x50' %>
+            <span class="profile-image-container">
+              <%= image_tag @users.find(band_comment.user_id).get_profile_image, size: '50x50' %>
+            </span>
             <%= link_to admin_user_path(@users.find(band_comment.user_id)) do %>
             <%= @users.find(band_comment.user_id).name %>
             <% end %>

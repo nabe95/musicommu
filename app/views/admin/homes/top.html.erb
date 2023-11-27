@@ -16,7 +16,9 @@
             <tr>
               <td><%= user.id %></td>
               <td>
-                <%= image_tag user.get_profile_image, size: '50x50' %>
+                <span class="profile-image-container">
+                  <%= image_tag user.get_profile_image, size: '50x50' %>
+                </span>
                 <%= link_to admin_user_path(user) do %>
                 <%= user.name %>
                 <% end %>
