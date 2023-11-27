@@ -18,7 +18,7 @@
       </td>
       <td><%= render "public/post_comments/counter", post: post %></td>
       <td>
-        <!--投稿一覧、タグ検索結果、キーワード検索結果-->
+        <!--投稿一覧、タグ検索結果、キーワード検索-->
         <% if params[:action] == 'index' || params[:action] == 'search_tag' || params[:action] == 'search' %>
           <%= link_to(post.user, class: 'd-flex align-items-center') do %>
             <span class="profile-image-container">

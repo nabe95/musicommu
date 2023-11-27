@@ -94,6 +94,9 @@ end
     )
     group.users << owner_user
     group.save!
+    
+    group_image_path = Rails.root.join("app/assets/images/group/#{group.id}.jpg")
+    group.group_image.attach(io: File.open(group_image_path), filename: "#{group.id}.jpg")
   end
 end
 
