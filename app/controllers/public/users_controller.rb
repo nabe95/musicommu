@@ -41,9 +41,16 @@ class Public::UsersController < ApplicationController
   #ユーザーが投稿したバンド募集一覧
   def bands
     @user = User.find(params[:id])
-    @band_posts = @user.band_posts.where(status: :public)
-                                  .order(created_at: :desc)
-                                  .page(params[:page]).per(6)
+    if current_user == @user
+      # ログインしているユーザーが対象のユーザーのバンド募集一覧を表示
+      @band_posts = @user.band_posts.order(created_at: :desc)
+                                    .page(params[:page]).per(6)
+    else
+      # 非ログインユーザーまたは他のユーザーの場合、公開状態のバンド募集のみ表示
+      @band_posts = @user.band_posts.where(status: :public)
+                                    .order(created_at: :desc)
+                                    .page(params[:page]).per(6)
+    end
   end
   
   #ユーザーが参加しているグループ
