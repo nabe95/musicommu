@@ -1,8 +1,9 @@
 # musicommu
+![musicommu](https://github.com/nabe95/musicommu/assets/143795237/a8f37621-2297-4215-937c-2d37ad35529c)
 ​
-## サイト概要
+## サイト概要🥁
 ### サイトテーマ
-音楽好きのための談話仲間やバンドメンバーを見つけるコミュニティサイト
+音楽好きのための談話を楽しむ仲間やバンドメンバーを見つけるコミュニティサイト
 ​
 ### テーマを選んだ理由
 大学生の頃、軽音サークルでコピーバンドをしていましたが、卒業やコロナ禍により演奏する機会や人と練習する機会がなくなってしまいました。
@@ -32,10 +33,13 @@
 - IDE：Cloud9
 ​
 ## 使用素材
-top画像
+- top画像
   - frestocks: [https://frestocks.com](https://frestocks.com/download/wpdmpro-4394)
   - photoAC:[https://www.photo-ac.com](https://www.photo-ac.com/main/detail/5059537&title=%E9%8D%B5%E7%9B%A4+%2F+%E6%9C%A8%E7%9B%AE%E3%83%94%E3%82%A2%E3%83%8E#goog_rewarded)
   - パブリックドメインQ: [https://publicdomainq.net](https://publicdomainq.net/music-concert-0026615/)
 
-  投稿イメージ画像
+- 投稿画像ノーイメージ
   - ECデザイン: [http://design-ec.com](http://design-ec.com/?p=55)
+
+- seedのユーザーのアイコンや投稿画像など
+    - 自分で撮影したもの
