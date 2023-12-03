@@ -16,9 +16,19 @@
       <%= render 'layouts/header' %>
     </header>
     <main>
-    <div class = "container">
-      <%= flash[:error] %>
-      <%= flash[:notice] %>
+    <div class = "container my-2">
+      <!--エラーメッセージ-->
+      <% if flash[:error].present? %>
+        <p class="alert alert-danger">
+          <%= flash[:error] %>
+        </p>
+      <% end %>
+      <!--フラッシュメッセージ-->
+      <% if flash[:notice].present? %>
+        <p class="alert alert-success">
+          <%= flash[:notice] %>
+        </p>
+      <% end %>
     </div>
     <%= yield %>
     </main>

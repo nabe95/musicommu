@@ -60,7 +60,7 @@ private
   def authorize_group_member
     @group = Group.find(params[:id])
     unless current_user && @group.users.include?(current_user)
-      redirect_to request.referer, notice:"メンバー以外はアクセスできません。グループに参加してください。"
+      redirect_to request.referer, flash: { error: "メンバー以外はアクセスできません。グループに参加してください。" }
     end
   end
 end

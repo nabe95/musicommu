@@ -5,7 +5,7 @@ class Public::BandCommentsController < ApplicationController
     @comment.band_post_id = @band_post.id
     if @comment.save
     else
-      flash[:notice] = "コメントを入力してください。"
+      flash[:error] = "コメントを入力してください。"
       redirect_back fallback_location: @band_post
     end
   end

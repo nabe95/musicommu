@@ -5,7 +5,7 @@ class Public::PostCommentsController < ApplicationController
     @comment.post_id = @post.id
     if @comment.save
     else
-      flash[:notice] = "コメントを入力してください。"
+      flash[:error] = "コメントを入力してください。"
     redirect_back fallback_location: @post
     end
   end
