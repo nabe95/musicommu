@@ -35,7 +35,7 @@
     <% if current_user != user %>
   <tr>
     <td colspan="2" class="text-center">
-      <%= render partial: "public/relationships/btn", locals: { user: current_user } %>
+      <%= render partial: "public/relationships/btn", locals: { user: @user } %>
     </td>
   </tr>
   <% end %>

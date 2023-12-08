@@ -8,7 +8,14 @@
       <!--会員が有効か退会かで表示-->
       <% if @user.is_active? %>
       <div class ="col-md-9">
-        <%= render 'public/posts/index', posts: @posts %>
+        <div style="text-align: center;">
+          <h5><%= @user.name %>さんの投稿一覧</h5>
+        </div>
+        <% if @posts.any? %>
+          <%= render 'public/posts/index', posts: @posts %>
+        <% else %>
+          <p style="text-align: center; color: red;">まだ投稿されていません</p>
+        <% end %>
         <div class ="d-flex justify-content-center">
         <%= paginate @posts %>
         </div>
