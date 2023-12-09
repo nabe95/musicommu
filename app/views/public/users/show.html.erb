@@ -14,7 +14,9 @@
         <% if @posts.any? %>
           <%= render 'public/posts/index', posts: @posts %>
         <% else %>
-          <p style="text-align: center; color: red;">まだ投稿されていません</p>
+          <div class="alert alert-info" role="alert">
+            <p style="text-align: center; ">投稿されていません</p>
+          </div>
         <% end %>
         <div class ="d-flex justify-content-center">
         <%= paginate @posts %>

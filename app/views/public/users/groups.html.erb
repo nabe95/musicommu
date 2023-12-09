@@ -4,7 +4,13 @@
       <div class="text-center mt-2">
       <h4><%= @user.name %>さんが参加しているグループ</h4>
       </div>
-      <%= render 'public/groups/index', groups: @groups %>
+        <% if @groups.any? %>
+          <%= render 'public/groups/index', groups: @groups %>
+        <% else %>
+        <div class="alert alert-info" role="alert">
+          <p style="text-align: center; ">参加しているグループがありません</p>
+        </div>
+        <% end %>
     </div>
   </div>
 </div>

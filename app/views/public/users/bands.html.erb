@@ -4,7 +4,13 @@
       <div class="text-center">
         <h4><%= @user.name %>さんが募集した投稿</h4>
       </div>
-  <%= render 'public/band_posts/index', band_posts: @band_posts %>
+        <% if @band_posts.any? %>
+          <%= render 'public/band_posts/index', band_posts: @band_posts %>
+        <% else %>
+          <div class="alert alert-info" role="alert">
+            <p style="text-align: center; ">募集の投稿をされていません</p>
+          </div>
+        <% end %>
     <div class="d-flex justify-content-center">
       <%= paginate @band_posts %>
     </div>

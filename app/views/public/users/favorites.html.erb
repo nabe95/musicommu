@@ -3,7 +3,13 @@
     <div class="col">
       <div class="text-center">
         <h3>いいね一覧</h3>
-  <%= render 'public/posts/index', posts: @favorite_posts %>
+        <% if @favorite_posts.any? %>
+          <%= render 'public/posts/index', posts: @favorite_posts %>
+        <% else %>
+          <div class="alert alert-info" role="alert">
+            <p>いいねした投稿はありません</p>
+          </div>
+        <% end %>
     </div>
   </div>
 </div>
