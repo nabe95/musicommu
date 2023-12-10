@@ -6,9 +6,11 @@
         <% if @favorite_posts.any? %>
           <%= render 'public/posts/index', posts: @favorite_posts %>
         <% else %>
+        <div class="text-center">
           <div class="alert alert-info" role="alert">
-            <p>いいねした投稿はありません</p>
+            いいねした投稿はありません
           </div>
+        </div>
         <% end %>
     </div>
   </div>

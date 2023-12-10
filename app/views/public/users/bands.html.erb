@@ -7,8 +7,10 @@
         <% if @band_posts.any? %>
           <%= render 'public/band_posts/index', band_posts: @band_posts %>
         <% else %>
-          <div class="alert alert-info" role="alert">
-            <p style="text-align: center; ">募集の投稿をされていません</p>
+          <div class="text-center">
+            <div class="alert alert-info" role="alert">
+              募集の投稿をされていません
+            </div>
           </div>
         <% end %>
     <div class="d-flex justify-content-center">

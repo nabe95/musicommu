@@ -1,12 +1,18 @@
 <div class="container">
   <div class="row my-2">
     <div class="col">
+      
       <div class="text-center">
         <h3>フォローされているユーザー</h3>
+        <% if @users.any? %>
+          <%= render "index", users: @users %>
+        <% else %>
+          <div class="alert alert-info" role="alert">
+            他のユーザーにフォローされていません
+          </div>
+        <% end %>
       </div>
-      
-      <%= render "index", users: @users %>
-      
+
     </div>
   </div>
 </div>

@@ -14,8 +14,10 @@
         <% if @posts.any? %>
           <%= render 'public/posts/index', posts: @posts %>
         <% else %>
-          <div class="alert alert-info" role="alert">
-            <p style="text-align: center; ">投稿されていません</p>
+          <div class="text-center">
+            <div class="alert alert-info" role="alert">
+              投稿されていません
+            </div>
           </div>
         <% end %>
         <div class ="d-flex justify-content-center">
