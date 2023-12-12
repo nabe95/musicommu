@@ -25,6 +25,7 @@
 - [テーブル定義書](https://docs.google.com/spreadsheets/d/1ZS1GIwJXYXZVv02q2vwgRq-zllDCaU58nzXX6eeNL2I/edit?usp=sharing)
 - [ER図](https://drive.google.com/file/d/1mpdVLah8i3HdgWfB9jxXqrhgSNiQ8R92/view?usp=sharing)
 ![musicommu_ER図](https://github.com/nabe95/musicommu/assets/143795237/2bbe85a3-beb9-4bbc-8320-4693e595c45a)
+- [AWS構成図](https://drive.google.com/file/d/1Q9fnOmGnAlPFItfhfain88KmgOsdKQrX/view?usp=sharing)
 ​
 ## 開発環境
 - OS：Linux(CentOS)
