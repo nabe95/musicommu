@@ -3,8 +3,12 @@
     <div class="col">
       <div class="text-center">
         <h3>いいね一覧</h3>
+      </div>
         <% if @favorite_posts.any? %>
           <%= render 'public/posts/index', posts: @favorite_posts %>
+            <div class ="d-flex justify-content-center">
+              <%= paginate @favorite_posts %>
+            </div>
         <% else %>
         <div class="text-center">
           <div class="alert alert-info" role="alert">
@@ -12,6 +16,5 @@
           </div>
         </div>
         <% end %>
-    </div>
   </div>
 </div>

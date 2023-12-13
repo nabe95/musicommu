@@ -1,34 +1,28 @@
-<table class='table table-hover table-inverse'>
-  <thead>
-    <tr>
-      <th>投稿日</th>
-      <th>タイトル</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% posts.each do |post| %>
-    <tr>
-      <td><%= post.created_at.strftime("%Y/%m/%d %H:%M")%></td>
-      <td><%= link_to post.title,post %></td>
-      <td class=<%= "favorite-" + post.id.to_s %> >
-        <%= render 'public/favorites/favorite', post: post %>
-      </td>
-      <td><%= render "public/post_comments/counter", post: post %></td>
-      <td>
-        <!--投稿一覧、タグ検索結果、キーワード検索-->
-        <% if params[:action] == 'index' || params[:action] == 'search_tag' || params[:action] == 'search' %>
-          <%= link_to(post.user, class: 'd-flex align-items-center') do %>
-            <span class="profile-image-container">
-              <%= image_tag post.user.get_profile_image, class: 'profile-image' %>
-            </span>
-            <%= post.user.name %>
-          <% end %>
-        <% end %>
-      </td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="row">
+  <% posts.each do |post| %>
+    <div class="col-md-4 mb-3">
+      <div class="card" style="max-width: 20rem;">
+        <%= image_tag post.get_image, width: '100%', height: '192px' %>
+        <table>
+          <tr>
+            <td><%= post.created_at.strftime("%Y/%m/%d %H:%M")%></td>
+            <td><%= post.user.name %></td>
+          </tr>
+          <tr>
+            <td colspan = "2"><%= link_to post.title,post %></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td class=<%= "favorite-" + post.id.to_s %> >
+              <%= render 'public/favorites/favorite', post: post %>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><%= render "public/post_comments/counter", post: post %></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  <% end %>
+</div>

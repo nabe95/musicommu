@@ -11,7 +11,7 @@ class Public::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts.order(created_at: :desc).page(params[:page]).per(10)
+    @posts = @user.posts.order(created_at: :desc).page(params[:page]).per(6)
     @following_users = @user.following_users
     @follower_users = @user.follower_users
   end
@@ -35,7 +35,7 @@ class Public::UsersController < ApplicationController
   def favorites
     @user = User.find(params[:id])
     favorites = Favorite.where(user_id: @user.id).pluck(:post_id)
-    @favorite_posts = Post.find(favorites)
+    @favorite_posts = Post.where(id: favorites).page(params[:page]).per(6)
   end
   
   #ユーザーが投稿したバンド募集一覧

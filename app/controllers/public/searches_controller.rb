@@ -4,7 +4,7 @@ class Public::SearchesController < ApplicationController
     @content = params[:content]
     @records = @records = Post.search_for(@content, params[:method])
                               .order(created_at: :desc)
-                              .page(params[:page]).per(8)
+                              .page(params[:page]).per(6)
   end
 
 end
