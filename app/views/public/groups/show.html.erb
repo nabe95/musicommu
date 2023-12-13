@@ -1,27 +1,26 @@
 <div class = 'container'>
   <div class = 'row'>
-    <div class = 'col-4'>
-      <table class = 'table table-hover table-inverse'>
+    <div class = 'col-md-4'>
+      <table class = 'table table-hover table-inverse text-center'>
           <tr>
-            <td colspan="2">
+            <td>
               <% if @group.group_image.attached? %>
                 <%= image_tag @group.group_image, size: "100x100", class: 'group-image' %>
               <% else %>
                 <%= image_tag 'no_image', size: "100x100", class: 'group-image' %>
               <% end %>
             </td>
+            <td class="text-center align-middle"><%= @group.name %></td>
           </tr>
           <tr>
-            <th>グループ名</th>
-            <td><%= @group.name %></td>
+            <th colspan="2">紹介文</th>
+          </tr>
+            <td colspan="2"><%= @group.introduction %></td>
+          <tr>
+            <th colspan="2">メンバー</th>
           </tr>
           <tr>
-            <th>紹介文</th>
-            <td><%= @group.introduction %></td>
-          </tr>
-          <tr>
-            <th>メンバー</th>
-            <td>
+            <td colspan="2">
               <% @group.users.each do |user| %>
               <li style="list-style: none;">
               <%= user.name %>
@@ -32,7 +31,7 @@
       </table>
       <%= link_to "グループ一覧に戻る", groups_path, class: "btn btn-sm btn-secondary" %>
     </div>
-    <div class = 'col-8'>
+    <div class = 'col-md-8'>
       <h4><%= @group.name %>のトークルーム</h4>
       <%= render partial: 'message', locals: { messages: @messages, my_user_id: @my_user_id, message: @message, group: @group } %>
     </div>

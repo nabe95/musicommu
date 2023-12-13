@@ -2,11 +2,16 @@
   <% posts.each do |post| %>
     <div class="col-md-4 mb-3">
       <div class="card" style="max-width: 20rem;">
-        <%= image_tag post.get_image, class: 'no-resize-img' %>
+        <%= link_to post_path(post) do %>
+          <%= image_tag post.get_image, class: 'resize-img' %>
+        <% end %>
         <table>
           <tr>
             <td><%= post.created_at.strftime("%Y/%m/%d %H:%M")%></td>
-            <td><%= post.user.name %></td>
+            <td><%= link_to(post.user) do %>
+                  <%= post.user.name %>
+                <% end %>
+            </td>
           </tr>
           <tr>
             <td colspan = "2"><%= link_to post.title,post %></td>
