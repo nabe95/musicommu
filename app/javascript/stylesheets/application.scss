@@ -65,9 +65,9 @@ h3 {
   object-fit: cover;
 }
 .no-resize-img {
-  width: auto; /* 幅を自動調整 */
-  height: 192px; /* 高さを設定 */
-  object-fit: cover; /* アスペクト比を保ちつつ、親要素に収める */
+  width: 288;
+  height: 192px;
+  object-fit: cover;
 }
 // マイページプロフィールを合わせる
 .profile-image, .group-image {
