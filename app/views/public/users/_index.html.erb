@@ -1,4 +1,5 @@
 <table class='table'>
+  <thead>
   <tr>
     <th></th>
     <th>名前</th>
@@ -8,6 +9,8 @@
     <th>フォロワー</th>
     <th></th>
   </tr>
+  </thead>
+  <tbody>
   <% users.each do |user| %>
   <tr>
     <td>
@@ -25,6 +28,7 @@
     <td><%= render partial: "public/relationships/btn", locals: { user: user } %></td>
   </tr>
   <% end %>
+  </tbody>
 </table>
 
 <div class ="d-flex justify-content-center">

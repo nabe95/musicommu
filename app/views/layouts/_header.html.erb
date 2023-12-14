@@ -6,10 +6,11 @@
     <% end %>
 
     <% if user_signed_in? %>
-      <div class="col-3 text-center" style="color: white;">
+      <div class="col-lg-3 col-md-6 col-sm-12" style="color: white;">
         ようこそ、<%= current_user.name %>さん
       </div>
     <% end %>
+
 
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
