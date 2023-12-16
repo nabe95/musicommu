@@ -27,13 +27,7 @@
       <td><%= group.group_users.count %></td>
       <td><%= group.introduction %></td>
       <td style="text-align: center;">
-    <% if group.owner_id == current_user.id %>
-      <td><%= link_to '　編集　', edit_group_path(group), class: "btn btn-sm btn-secondary" %></td>
-    <% elsif group.includesUser?(current_user)%>
-      <td><%= link_to '　退出する　', group_group_users_path(group), method: :delete, class: "btn btn-sm btn-danger" %></td>
-    <% else %>
-　　  <td><%= link_to '　参加する　', group_group_users_path(group), method: :post, class: "btn btn-sm btn-success" %></td>
-    <% end %>
+        <%= render "public/groups/join", group: group, current_user: current_user %>
       </td>
     </tr>
     <% end %>
