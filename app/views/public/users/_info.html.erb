@@ -10,12 +10,12 @@
     <td>
       フォロー:
       <%= link_to follows_user_path(user) do %>
-      <%= user.followers.count %>
+      <span class = "followers_<%= user.id %>"><%= render "public/relationships/followers", user: user %></span>
       <% end %>
     </td>
     <td>フォロワー:
       <%= link_to followers_user_path(user) do %>
-      <%= user.followeds.count %>
+      <span class = "followeds_<%= user.id %>"><%= render "public/relationships/followeds", user: user %></span>
       <% end %>
     </td>
   </tr>
@@ -34,8 +34,8 @@
   </tr>
     <% if current_user != user %>
   <tr>
-    <td colspan="2" class="text-center">
-      <%= render partial: "public/relationships/btn", locals: { user: @user } %>
+    <td colspan="2" class="relationship_<%= @user.id %> text-center">
+      <%= render "public/relationships/btn", user: @user  %>
     </td>
   </tr>
   <% end %>

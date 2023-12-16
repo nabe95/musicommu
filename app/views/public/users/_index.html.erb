@@ -23,9 +23,9 @@
     </td>
     <td><%= user.introduction %></td>
     <td><%= user.genre %></td>
-    <td><%= user.followers.count %></td>
-    <td><%= user.followeds.count %></td>
-    <td><%= render partial: "public/relationships/btn", locals: { user: user } %></td>
+    <td class = "followers_<%= user.id %>"><%= render "public/relationships/followers", user: user %></td>
+    <td class = "followeds_<%= user.id %>"><%= render "public/relationships/followeds", user: user %></td>
+    <td class ="relationship_<%= user.id %>"><%= render "public/relationships/btn", user: user %></td>
   </tr>
   <% end %>
   </tbody>
