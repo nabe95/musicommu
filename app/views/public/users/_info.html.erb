@@ -10,7 +10,7 @@
     <td>
       フォロー:
       <%= link_to follows_user_path(user) do %>
-      <span class = "followers_<%= user.id %>"><%= render "public/relationships/followers", user: user %></span>
+        <%= render "public/relationships/followers", user: user %>
       <% end %>
     </td>
     <td>フォロワー:
