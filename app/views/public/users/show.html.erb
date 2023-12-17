@@ -7,9 +7,9 @@
 
       <!--会員が有効か退会かで表示-->
       <% if @user.is_active? %>
-      <div class ="col-md-9">
+      <div class ="col-md-9 my-2">
         <div style="text-align: center;">
-          <h5><%= @user.name %>さんの投稿一覧</h5>
+          <h3><%= @user.name %>さんの投稿一覧</h3>
         </div>
         <% if @posts.any? %>
           <%= render 'public/posts/index', posts: @posts %>
