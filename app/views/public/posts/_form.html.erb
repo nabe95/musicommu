@@ -1,8 +1,8 @@
 <!--投稿の新規投稿(newアクション)と編集(editアクション)で使用-->
 <%= form_with model: post, local: true do |f| %>
-  <table class="table table-borderless">
+  <table class="table-form table-borderless mx-auto">
     <tr>
-      <td><%= f.label :画像 %></td>
+      <td>画像<br>(画像を選択しなくても投稿できます。)</td>
       <td><%= f.file_field :image, accept: "image/*" %></td>
     </tr>
     <tr>
@@ -14,7 +14,7 @@
       <td><%= f.text_area :body, style: "width: 300px;"%></td>
     </tr>
     <tr>
-      <td>タグ<br>,で区切ると複数のタグを<br>登録できます</td>
+      <td>タグ<br>,で区切ると複数のタグを<br>登録できます<br>(タグを入力しなくても投稿できます。)</td>
       <td><%= f.text_field :name,value: @tag_list, style: "width: 300px;", placeholder: "ロック,東京,…" %></td>
     </tr>
     <tr>
@@ -24,7 +24,7 @@
       <% if post.new_record? %>
         <%= f.submit '　 投稿 　',class:"btn btn-sm btn-success" %>
       <% else %>
-        <%= f.submit '　変更を保存　',class:"btn btn-sm btn-success" %>
+        <%= f.submit '　 変更を保存　',class:"btn btn-sm btn-success" %>
       <% end %>
       </td>
     </tr>

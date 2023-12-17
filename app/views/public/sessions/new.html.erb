@@ -7,7 +7,7 @@
       </div>
       
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <table class="table table-borderless">
+        <table class="table-form table-borderless">
           <tr>
             <td>メールアドレス</td>
             <td><%= f.email_field :email, autofocus: true, autocomplete: "email", style: "width: 300px;" %></td>

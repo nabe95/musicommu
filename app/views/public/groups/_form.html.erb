@@ -1,12 +1,12 @@
 <%= form_with model: group, local: true do |f| %>
-  <table class="table table-borderless">
+  <table class="table-form table-borderless mx-auto">
     <tr>
       <td>グループ名</td>
       <td><%= f.text_field :name, class: 'form-control' %></td>
     </tr>
     <tr>
       <td>紹介文</td>
-      <td><%= f.text_field :introduction, class: 'form-control' %></td>
+      <td><%= f.text_area :introduction, class: 'form-control' %></td>
     </tr>
     <td>グループ画像</td>
     <td><%= f.file_field :group_image, class: "form-control-file" , accept: "image/*" %></td>

@@ -1,6 +1,6 @@
 <!--投稿の新規投稿(newアクション)と編集(editアクション)で使用-->
 <%= form_with model: band_post, local: true do |f| %>
-  <table class="table table-borderless">
+  <table class="table-form table-borderless mx-auto">
     <tr>
       <td>タイトル</td>
       <td><%= f.text_field :title, style: "width: 300px;" %></td>

@@ -1,7 +1,7 @@
 <div class="row">
   <% posts.each do |post| %>
     <div class="col-md-4 mb-3">
-      <div class="card" style="max-width: 20rem;">
+      <div class="card mx-auto" style="max-width: 20rem;">
         <%= link_to post_path(post) do %>
           <%= image_tag post.get_image, class: 'resize-img' %>
         <% end %>

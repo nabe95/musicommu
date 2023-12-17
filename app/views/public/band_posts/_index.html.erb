@@ -1,7 +1,7 @@
 <div class="row">
   <% band_posts.each do |band_post| %>
     <div class="col-md-4 mb-3">
-      <div class="card" style="max-width: 20rem; border: 1px solid #3994ac;">
+      <div class="card mx-auto" style="max-width: 20rem; border: 1px solid #3994ac;">
         <%= link_to band_post, class: "card-body text-dark" do %>
           <p><%= band_post.created_at.strftime("%Y/%m/%d %H:%M")%>
             <!--公開ステータスは投稿したユーザーのみ表示-->

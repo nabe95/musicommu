@@ -9,7 +9,7 @@
       <div class="text-right mb-3">
         <%= link_to "　退会する　", check_user_path(current_user.id), class:"btn btn-sm btn-danger" %>
       </div>
-        <table class="table table-borderless">
+        <table class="table-form table-borderless mx-auto">
           <tr>
             <td>プロフィール画像</td>
             <td><%= f.file_field :profile_image, accept: "image/*" %></td>

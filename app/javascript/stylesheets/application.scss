@@ -50,6 +50,16 @@ th {
   border-bottom: 2px solid #dee2e6;
 }
 
+.table-form {
+  width: 100%;
+  border-collapse: collapse; /* ボーダーの折り畳み */
+}
+
+.table-form td,
+.table-form th {
+  padding: 10px;
+}
+
 h3 {
   font-family: "MS Gothic", sans-serif;
   color: #053C5E;
@@ -179,38 +189,65 @@ h3 {
 }
 
 @media screen and (max-width: 640px) {
+// ユーザー、グループ一覧　テーブル
   .tbl-r01 {
     border-collapse: separate;
     border-spacing: 0 1rem;
     width: 100%;
   }
-  
+
   .tbl-r01 .thead {
     display: none;
   }
-  
+
   .tbl-r01 tr {
     width: 100%;
   }
-  
+
   .tbl-r01 td {
     display: inline-block;
     width: 100%;
     border-bottom: none;
     padding: 3px;
   }
-  
+
   .tbl-r01 td:nth-child(1),
             td:nth-child(2),
             td:nth-child(7) {
             text-align: center;
   }
-  
+
   .tbl-r01 td:before {
     content: attr(data-label);
     float: left;
     font-weight: bold;
     margin-right: 10px;
   }
-  
+
+  // 作成、編集画面table
+  .table-form tr,
+  .table-form td,
+  .table-form th{
+    width: 100%;
+    display: block;
+    margin-bottom: 3px;
+  }
+
+  .table-form td {
+  text-align: left;
+  }
+
+  // スライドショー
+.slider-item .slider-image {
+  width: 350px;
+  height: 200px;
+}
+
+.slider {
+  width: 350px;
+  height: 200px;
+  display: flex;
+  overflow: hidden;
+  margin: 0 auto;
+}
 }
