@@ -1,6 +1,5 @@
-<table class='table'>
-  <thead>
-  <tr>
+<table class="tbl-r01 ">
+  <tr class="thead">
     <th></th>
     <th>名前</th>
     <th>自己紹介</th>
@@ -10,7 +9,6 @@
     <th></th>
   </tr>
   </thead>
-  <tbody>
   <% users.each do |user| %>
   <tr>
     <td>
@@ -21,14 +19,13 @@
       <%= user.name %>
       <% end %>
     </td>
-    <td><%= user.introduction %></td>
-    <td><%= user.genre %></td>
-    <td class = "followers_<%= user.id %>"><%= render "public/relationships/followers", user: user %></td>
-    <td class = "followeds_<%= user.id %>"><%= render "public/relationships/followeds", user: user %></td>
+    <td data-label="自己紹介:"><%= user.introduction %></td>
+    <td data-label="好きなジャンル:"><%= user.genre %></td>
+    <td data-label="フォロー:" class = "followers_<%= user.id %>"><%= render "public/relationships/followers", user: user %></td>
+    <td data-label="フォロワー:" = "followeds_<%= user.id %>"><%= render "public/relationships/followeds", user: user %></td>
     <td class ="relationship_<%= user.id %>"><%= render "public/relationships/btn", user: user %></td>
   </tr>
   <% end %>
-  </tbody>
 </table>
 
 <div class ="d-flex justify-content-center">

@@ -31,6 +31,25 @@ th {
   color: white;
 }
 
+.tbl-r01 {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1rem;
+}
+
+.tbl-r01 th,
+.tbl-r01 td {
+  border: none; /* 縦線を非表示にする */
+  border-bottom: 1px solid #dee2e6; /* 横線のみ表示 */
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.tbl-r01 thead th {
+  border-bottom: 2px solid #dee2e6;
+}
+
 h3 {
   font-family: "MS Gothic", sans-serif;
   color: #053C5E;
@@ -125,36 +144,73 @@ h3 {
   0% {
     margin-left: 0;
   }
-  
+
   20% {
     margin-left: -100%;
   }
-  
+
   25% {
     margin-left: -100%;
   }
-  
+
   45% {
     margin-left: -200%;
   }
-  
+
   50% {
     margin-left: -200%;
   }
-  
+
   70% {
     margin-left: -300%;
   }
-  
+
   75% {
     margin-left: -300%;
   }
-  
+
   95% {
     margin-left: -400%;
   }
-  
+
   100% {
     margin-left: -400%;
   }
+}
+
+@media screen and (max-width: 640px) {
+  .tbl-r01 {
+    border-collapse: separate;
+    border-spacing: 0 1rem;
+    width: 100%;
+  }
+  
+  .tbl-r01 .thead {
+    display: none;
+  }
+  
+  .tbl-r01 tr {
+    width: 100%;
+  }
+  
+  .tbl-r01 td {
+    display: inline-block;
+    width: 100%;
+    border-bottom: none;
+    padding: 3px;
+  }
+  
+  .tbl-r01 td:nth-child(1),
+            td:nth-child(2),
+            td:nth-child(7) {
+            text-align: center;
+  }
+  
+  .tbl-r01 td:before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  
 }
