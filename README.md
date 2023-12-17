@@ -26,22 +26,19 @@
 - [ER図](https://drive.google.com/file/d/1mpdVLah8i3HdgWfB9jxXqrhgSNiQ8R92/view?usp=sharing)
 ![musicommu_ER図](https://github.com/nabe95/musicommu/assets/143795237/2bbe85a3-beb9-4bbc-8320-4693e595c45a)
 - [AWS構成図](https://drive.google.com/file/d/1Q9fnOmGnAlPFItfhfain88KmgOsdKQrX/view?usp=sharing)
+![AWS構成図_PF_渡邉裕菜](https://github.com/nabe95/musicommu/assets/143795237/4a5d2f42-d0ef-4bf3-9843-8273493ce4e9)
 ​
 ## 開発環境
-- OS：Linux(CentOS)
+- OS：Amazon Linux release 2
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
 ​
 ## 使用素材
-- top画像
-  - frestocks: [https://frestocks.com](https://frestocks.com/download/wpdmpro-4394)
-  - photoAC:[https://www.photo-ac.com](https://www.photo-ac.com/main/detail/5059537&title=%E9%8D%B5%E7%9B%A4+%2F+%E6%9C%A8%E7%9B%AE%E3%83%94%E3%82%A2%E3%83%8E#goog_rewarded)
-  - パブリックドメインQ: [https://publicdomainq.net](https://publicdomainq.net/music-concert-0026615/)
+- frestocks: [https://frestocks.com](https://frestocks.com/download/wpdmpro-4394)
+- photoAC:[https://www.photo-ac.com](https://www.photo-ac.com/main/detail/5059537&title=%E9%8D%B5%E7%9B%A4+%2F+%E6%9C%A8%E7%9B%AE%E3%83%94%E3%82%A2%E3%83%8E#goog_rewarded)
+- パブリックドメインQ: [https://publicdomainq.net](https://publicdomainq.net/music-concert-0026615/)
+- ECデザイン: [http://design-ec.com](http://design-ec.com/?p=55)
 
-- 投稿画像ノーイメージ
-  - ECデザイン: [http://design-ec.com](http://design-ec.com/?p=55)
-
-- seedのユーザーのアイコンや投稿画像など
-    - 自分で撮影したもの
+- seedのユーザーのアイコンや投稿画像などは自分で撮影したもの
