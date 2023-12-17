@@ -1,6 +1,7 @@
 # musicommu
-![musicommu](https://github.com/nabe95/musicommu/assets/143795237/a8f37621-2297-4215-937c-2d37ad35529c)
-​
+  <img src="https://github.com/nabe95/musicommu/assets/143795237/a8f37621-2297-4215-937c-2d37ad35529c" height="300">
+  <img src="https://github.com/nabe95/musicommu/assets/143795237/d33524c9-88cf-4690-a2a9-acdb1a5dc048" height="300">
+
 ## サイト概要🥁
 ### サイトテーマ
 音楽好きのための談話を楽しむ仲間やバンドメンバーを見つけるコミュニティサイト
@@ -23,11 +24,11 @@
 ## 設計書
 - [実装機能リスト](https://docs.google.com/spreadsheets/d/1x1ill3eqfte-8SZHkISl9I4pbArrTM_blnp04PXZ_Ec/edit?usp=sharing)
 - [テーブル定義書](https://docs.google.com/spreadsheets/d/1ZS1GIwJXYXZVv02q2vwgRq-zllDCaU58nzXX6eeNL2I/edit?usp=sharing)
-- [アプリケーション詳細](https://docs.google.com/spreadsheets/d/1PKpQmcJGojPdSLLADmQCqHjsxsSYP4GIhP-4d8wjc2o/edit?usp=sharing)
+- [アプリケーション詳細設計図](https://docs.google.com/spreadsheets/d/1PKpQmcJGojPdSLLADmQCqHjsxsSYP4GIhP-4d8wjc2o/edit?usp=sharing)
 - [ER図](https://drive.google.com/file/d/1mpdVLah8i3HdgWfB9jxXqrhgSNiQ8R92/view?usp=sharing)
   ![musicommu_ER図](https://github.com/nabe95/musicommu/assets/143795237/2bbe85a3-beb9-4bbc-8320-4693e595c45a)
 - [AWS構成図](https://drive.google.com/file/d/1Q9fnOmGnAlPFItfhfain88KmgOsdKQrX/view?usp=sharing)<br>
-  <img src="https://github.com/nabe95/musicommu/assets/143795237/4a5d2f42-d0ef-4bf3-9843-8273493ce4e9" width="400">
+  <img src="https://github.com/nabe95/musicommu/assets/143795237/4a5d2f42-d0ef-4bf3-9843-8273493ce4e9" width="300">
 
 ## 開発環境
 - OS：Amazon Linux release 2
