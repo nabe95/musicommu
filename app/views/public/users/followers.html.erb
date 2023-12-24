@@ -1,9 +1,9 @@
 <div class="container">
   <div class="row my-2">
     <div class="col">
-      
+
       <div class="text-center">
-        <h3>フォローされているユーザー</h3>
+        <h3><%= @user.name %>さんがフォローされているユーザー</h3>
         <% if @users.any? %>
           <%= render "index", users: @users %>
         <% else %>

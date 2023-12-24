@@ -37,7 +37,7 @@ class Public::UsersController < ApplicationController
     favorites = Favorite.where(user_id: @user.id).pluck(:post_id)
     @favorite_posts = Post.where(id: favorites).page(params[:page]).per(6)
   end
-  
+
   #ユーザーが投稿したバンド募集一覧
   def bands
     @user = User.find(params[:id])
@@ -52,7 +52,7 @@ class Public::UsersController < ApplicationController
                                     .page(params[:page]).per(6)
     end
   end
-  
+
   #ユーザーが参加しているグループ
   def groups
     @user = User.find(params[:id])
@@ -67,17 +67,17 @@ class Public::UsersController < ApplicationController
     flash[:notice] = "退会処理を行いました。"
     redirect_to root_path
   end
-  
+
   #フォロー一覧
   def follows
-    user = User.find(params[:id])
-    @users = user.following_users.page(params[:page]).per(10)
+    @user = User.find(params[:id])
+    @users = @user.following_users.page(params[:page]).per(10)
   end
-  
+
   #フォロワー一覧
   def followers
-    user = User.find(params[:id])
-    @users = user.follower_users.page(params[:page]).per(10)
+    @user = User.find(params[:id])
+    @users = @user.follower_users.page(params[:page]).per(10)
   end
 
   private
@@ -92,7 +92,7 @@ class Public::UsersController < ApplicationController
       redirect_to user_path(current_user), flash: {error: "ゲストユーザーはプロフィール編集画面へ遷移できません。"}
     end
   end
-  
+
   #他のユーザーがアクセスできないようにする
   def is_matching_login_user
     user = User.find(params[:id])

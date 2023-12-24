@@ -11,6 +11,9 @@
             <%= comment.user.name %>
           <% end %>
         </td>
+        <td>
+          <%= comment.created_at.strftime("%m/%d %H:%M")%>
+        </td>
         <td><%= comment.comment %></td>
         <td>
         <% if comment.user == current_user %>

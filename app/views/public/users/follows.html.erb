@@ -2,7 +2,7 @@
   <div class="row my-2">
     <div class="col">
       <div class="text-center">
-        <h3>フォローしているユーザー</h3>
+        <h3><%= @user.name %>さんがフォローしているユーザー</h3>
         <% if @users.any? %>
           <%= render "index", users: @users %>
         <% else %>
@@ -11,7 +11,7 @@
           </div>
         <% end %>
       </div>
-              
+
     </div>
   </div>
 </div>
