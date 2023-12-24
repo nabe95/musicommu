@@ -41,7 +41,7 @@ class Post < ApplicationRecord
     Post.where('body LIKE?', '%'+content+'%')
     end
   end
-  
+
   #タグ機能
   def save_tags(tags)
     #存在しているタグの場合、配列として全て取得
@@ -57,7 +57,11 @@ class Post < ApplicationRecord
     #新しいタグを保存
     new_tags.each do |new_name|
       tag = Tag.find_or_create_by(name: new_name)
-      self.tags << tag
+
+      # 既に関連が存在する場合は追加しないようにする
+      unless self.tags.include?(tag)
+        self.tags << tag
+      end
     end
   end
 end
