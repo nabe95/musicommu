@@ -39,9 +39,9 @@
             <td>会員ステータス</td>
             <td>
               <%= f.radio_button :is_active, :true %>
-              <%= f.label :有効 %>
+              <%= f.label :is_active, '有効', value: true %>
               <%= f.radio_button :is_active, :false %>
-              <%= f.label :退会 %>
+              <%= f.label :is_active, '退会', value: false %>
             </td>
           </tr>
           <tr>
@@ -50,7 +50,7 @@
           </tr>
         </table>
       <% end %>
-      
+
     </div>
   </div>
 </div>
