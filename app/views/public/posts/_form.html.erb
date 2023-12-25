@@ -7,11 +7,11 @@
     </tr>
     <tr>
       <td>タイトル</td>
-      <td><%= f.text_field :title, style: "width: 300px;"%></td>
+      <td><%= f.text_field :title, style: "width: 300px;", placeholder: "20文字以内"%></td>
     </tr>
     <tr>
       <td>本文</td>
-      <td><%= f.text_area :body, style: "width: 300px;"%></td>
+      <td><%= f.text_area :body, style: "width: 300px;", placeholder: "100文字以内"%></td>
     </tr>
     <tr>
       <td>タグ<br>,で区切ると複数のタグを<br>登録できます<br>(タグを入力しなくても投稿できます。)</td>
