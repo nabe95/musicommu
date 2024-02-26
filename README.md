@@ -28,6 +28,7 @@
 - [ER図](https://drive.google.com/file/d/1mpdVLah8i3HdgWfB9jxXqrhgSNiQ8R92/view?usp=sharing)
   ![musicommu_ER図](https://github.com/nabe95/musicommu/assets/143795237/2bbe85a3-beb9-4bbc-8320-4693e595c45a)
 - [AWS構成図](https://drive.google.com/file/d/1Q9fnOmGnAlPFItfhfain88KmgOsdKQrX/view?usp=sharing)<br>
+  停止済み(2023年11月〜2024年2月まで利用)
   <img src="https://github.com/nabe95/musicommu/assets/143795237/4a5d2f42-d0ef-4bf3-9843-8273493ce4e9" width="300">
 
 ## 開発環境
